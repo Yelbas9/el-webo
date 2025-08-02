@@ -27,10 +27,10 @@
       content="Développeur web freelance spécialisé React & UX/UI. Création de sites vitrines, e-commerce et applications sur-mesure à Paris et partout en France."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://ton-site.netlify.app/" />
+    <meta property="og:url" content="https://el-webo.netlify.app/" />
     <meta property="og:site_name" content="El Webo" />
     <!-- Image de partage (remplace par l’URL de ton image SEO adaptée) -->
-    <meta property="og:image" content="https://ton-site.netlify.app/ew.webp" />
+    <meta property="og:image" content="https://el-webo.netlify.app/ew.webp" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -42,7 +42,7 @@
       name="twitter:description"
       content="Développeur web freelance spécialisé React & UX/UI. Création de sites vitrines, e-commerce et applications sur-mesure à Paris et partout en France."
     />
-    <meta name="twitter:image" content="https://ton-site.netlify.app/ew.webp" />
+    <meta name="twitter:image" content="https://el-webo.netlify.app/ew.webp" />
 
     <!-- Google Fonts : Epilogue -->
     <link
@@ -59,13 +59,26 @@
     <!-- <link rel="manifest" href="/manifest.webmanifest"> -->
 
     <!-- Couleur thème navigateur mobile -->
-    <meta name="theme-color" content="[#F7F5F2]" />
+    <meta name="theme-color" content="#F7F5F2" />
 
     <!-- Canonical URL (SEO anti-duplicate) -->
-    <link rel="canonical" href="https://ton-site.netlify.app/" />
+    <link rel="canonical" href="https://el-webo.netlify.app/" />
   </head>
   <body class="bg-[var(--white)] font-epilogue antialiased">
     <div id="root"></div>
+
+    <!-- Formulaires fantômes pour détection Netlify -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+    </form>
+    <form name="contact-modal" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="nom" />
+      <input type="email" name="email" />
+      <input type="tel" name="tel" />
+      <textarea name="message"></textarea>
+    </form>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

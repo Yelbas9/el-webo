@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import sendIcon from "/send.webp";
 
 const socialLinks = [
@@ -30,21 +29,6 @@ const socialLinks = [
 ];
 
 const ContactFormSection = () => {
-  const [formData, setFormData] = useState({ name: "", email: "" });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Merci ! (Formulaire non connecté)");
-  };
-
   return (
     <footer className="w-full bg-[#1c1c1c] pt-12 pb-6 px-3 md:px-8 lg:px-0">
       <section
@@ -89,8 +73,11 @@ const ContactFormSection = () => {
             ))}
           </nav>
         </div>
-        {/* Formulaire */}
+        {/* Formulaire Netlify */}
         <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
           className="
             flex-1 flex flex-col gap-4 md:gap-6
             max-w-[520px] mx-auto md:mx-0
@@ -98,14 +85,13 @@ const ContactFormSection = () => {
             items-center md:items-end
             pt-4 md:pt-0
           "
-          onSubmit={handleSubmit}
         >
+          {/* Champ caché Netlify */}
+          <input type="hidden" name="form-name" value="contact" />
           <input
             id="name"
             name="name"
             type="text"
-            value={formData.name}
-            onChange={handleInputChange}
             className="px-5 py-3 md:px-6 md:py-4 bg-[#f3f3f3] rounded-md w-full text-black text-[1rem] md:text-[17px] focus:outline-none"
             placeholder="Nom"
             required
@@ -114,8 +100,6 @@ const ContactFormSection = () => {
             id="email"
             name="email"
             type="email"
-            value={formData.email}
-            onChange={handleInputChange}
             className="px-5 py-3 md:px-6 md:py-4 bg-[#f3f3f3] rounded-md w-full text-black text-[1rem] md:text-[17px] focus:outline-none"
             placeholder="Email"
             required

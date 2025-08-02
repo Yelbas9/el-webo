@@ -10,6 +10,7 @@ const ContactModal = ({ open, onClose }) => {
     email: "",
     tel: "",
     message: "",
+    "bot-field": "", // Ajout honeypot
   });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
@@ -89,10 +90,24 @@ const ContactModal = ({ open, onClose }) => {
             name="contact-modal"
             method="POST"
             data-netlify="true"
+            netlify-honeypot="bot-field"
+            accept-charset="UTF-8"
             className="flex flex-col gap-5"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact-modal" />
+            {/* Honeypot anti-spam */}
+            <p style={{ display: "none" }}>
+              <label>
+                Ne pas remplir si humain&nbsp;:{" "}
+                <input
+                  name="bot-field"
+                  value={form["bot-field"]}
+                  onChange={handleChange}
+                  autoComplete="off"
+                />
+              </label>
+            </p>
             <div className="flex flex-col gap-2">
               <label htmlFor="nom" className="font-semibold text-black">
                 Nom et prénom
@@ -155,14 +170,14 @@ const ContactModal = ({ open, onClose }) => {
             <div className="flex gap-4 mt-3 flex-row justify-end">
               <button
                 type="submit"
-                className=" bg-[#FFD300] text-[#1c1c1c] font-bold rounded-[20px] px-8 py-3 text-lg  hover:bg-[#e6be00] transition-colors cursor-pointer"
+                className="bg-[#FFD300] text-[#1c1c1c] font-bold rounded-[20px] px-8 py-3 text-lg hover:bg-[#e6be00] transition-colors cursor-pointer"
                 disabled={sending}
               >
                 {sending ? "Envoi..." : "Envoyer"}
               </button>
               <button
                 type="button"
-                className="bg-[#2d2d2d]  text-white font-bold rounded-[20px] px-8 py-3 text-lg hover:bg-[#1a1a1a] md:whitespace-nowrap transition-colors cursor-pointer"
+                className="bg-[#2d2d2d] text-white font-bold rounded-[20px] px-8 py-3 text-lg hover:bg-[#1a1a1a] md:whitespace-nowrap transition-colors cursor-pointer"
                 onClick={() => window.open(GOOGLE_FORM_URL, "_blank")}
               >
                 Demander un devis
