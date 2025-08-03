@@ -174,7 +174,7 @@ const SkillsOverviewSection = () => {
         <button
           onClick={() => setShowMore(true)}
           className="
-            bg-[#1c1c1c] rounded-[20px] inline-flex items-center justify-center gap-2.5
+            bg-[#1c1c1c] rounded-[20px] inline-flex items-center justify-center gap-2.5 min-w-[240px]
             px-8 py-3 sm:px-12 sm:py-5 md:px-16 md:py-6
             font-bold text-white
             text-lg sm:text-xl md:text-2xl

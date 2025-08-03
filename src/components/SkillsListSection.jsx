@@ -111,9 +111,9 @@ const SkillsListSection = () => {
         rel="noopener noreferrer"
         className="
     bg-[var(--yellow)] rounded-[20px] inline-flex items-center justify-center gap-2.5 
-    px-8 py-4 md:px-16 md:py-6 
+     px-8 py-3 md:px-16 md:py-6 
     font-bold text-[#1c1c1c] 
-    text-xl md:text-2xl 
+    text-lg sm:text-xl md:text-2xl
     hover:bg-[#e6be00] transition-colors duration-200 shadow
     whitespace-nowrap
   "

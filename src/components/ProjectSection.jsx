@@ -193,7 +193,7 @@ const MonDernierProjet = () => {
           href="https://docs.google.com/forms/d/e/1FAIpQLSe5hvpRaPU26VUqFm81nqy9_MEupiXwQIwgs7JL2UOr5_wCrw/viewform?usp=dialog"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-[var(--yellow)] rounded-[20px] px-8 py-4 md:px-16 md:py-6 font-bold text-[#1c1c1c] text-lg md:text-2xl hover:bg-[#e6be00] transition-colors duration-200 shadow whitespace-nowrap"
+          className="bg-[var(--yellow)] rounded-[20px] px-8 py-3 md:px-16 md:py-6 font-bold text-[#1c1c1c] text-lg md:text-2xl hover:bg-[#e6be00] transition-colors duration-200 shadow whitespace-nowrap"
         >
           Je demande un devis
         </a>

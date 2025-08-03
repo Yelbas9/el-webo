@@ -39,11 +39,11 @@ const HeaderSection = ({ onContactClick }) => {
           <button
             type="button"
             onClick={onContactClick}
-            className="-mt-15 inline-flex items-center justify-center bg-[#FFD300] rounded-[20px] px-6 py-3 font-bold text-[#1c1c1c] text-[18px] leading-none shadow-sm hover:bg-[#e6be00] transition-colors cursor-pointer duration-200 focus:outline-none focus:ring-2 focus:ring-[#FFD300] focus:ring-offset-2"
+            className="-mt-15 inline-flex items-center justify-center bg-[#FFD300] rounded-[20px] px-8 py-3 font-bold text-[#1c1c1c] text-[18px] leading-none shadow-sm hover:bg-[#e6be00] transition-colors cursor-pointer duration-200 focus:outline-none focus:ring-2 focus:ring-[#FFD300] focus:ring-offset-2"
             style={{
-              minWidth: "110px",
-              maxWidth: "170px",
-              minHeight: "40px",
+              minWidth: "180px",
+              maxWidth: "220px",
+              minHeight: "52px",
               gap: "8px",
               borderRadius: "20px",
             }}
