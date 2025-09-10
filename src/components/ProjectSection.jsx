@@ -114,7 +114,7 @@ const MonDernierProjet = () => {
             <ChevronScroll />
             <div className="relative w-full max-w-[950px] aspect-[16/9] bg-white overflow-hidden">
               {/* SCROLLABLE Y */}
-              <div className="absolute top-0 left-0 w-full h-full overflow-y-auto overflow-x-hidden">
+              <div className="absolute top-0 left-0 w-full h-full overflow-hidden md:overflow-y-auto overflow-x-hidden">
                 <img
                   src={accueilImage}
                   alt="Page d'accueil TH Menuiserie"
@@ -132,7 +132,7 @@ const MonDernierProjet = () => {
             />
           </div>
           {/* Bloc texte accueil */}
-          <div className="flex-1 flex flex-col justify-center items-center md:items-start px-8 pt-5 md:pt-0 w-full">
+          <div className="flex-1 flex flex-col justify-center items-center md:items-start px-8 pt-8 md:pt-0 w-full">
             <h3 className="font-bold font-[Epilogue,Helvetica] text-white text-lg sm:text-xl xl:text-2xl mb-3 md:mb-4 text-center md:text-left">
               Page d’accueil du site vitrine
             </h3>
@@ -156,7 +156,7 @@ const MonDernierProjet = () => {
             <ChevronScrollRight />
             <div className="relative w-full max-w-[950px] aspect-[16/9] bg-white overflow-hidden">
               {/* SCROLLABLE Y */}
-              <div className="absolute top-0 left-0 w-full h-full overflow-y-auto overflow-x-hidden">
+              <div className="absolute top-0 left-0 w-full h-full overflow-hidden md:overflow-y-auto overflow-x-hidden">
                 <img
                   src={produitsImage}
                   alt="Page produit TH Menuiserie"
@@ -175,7 +175,7 @@ const MonDernierProjet = () => {
             />
           </div>
           {/* Bloc texte produit */}
-          <div className="flex-1 flex flex-col justify-center items-center md:items-start px-8 pt-5 md:pt-0 w-full">
+          <div className="flex-1 flex flex-col justify-center items-center md:items-start px-8 pt-8 md:pt-0 w-full">
             <h3 className="font-bold font-[Epilogue,Helvetica] text-white text-lg sm:text-xl xl:text-2xl mb-3 md:mb-4 text-center md:text-left">
               Page produits/services
             </h3>

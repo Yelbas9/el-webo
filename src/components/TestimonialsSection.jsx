@@ -2,6 +2,7 @@ import clientImage from "/homme.webp";
 import clientImage2 from "/femme.webp";
 import clientImage3 from "/homme.webp";
 import smiley from "/smiley.webp";
+import { useRef, useEffect } from "react";
 
 // Icône SVG 5 étoiles jaunes
 const Stars = () => (
@@ -24,21 +25,21 @@ const Stars = () => (
 const testimonialsData = [
   {
     id: 1,
-    text: "Un grand merci pour ce site internet. Tout est clair, pro, moderne. C'est un réel gain de temps, mes clients trouvent facilement mes réalisations et peuvent me contacter sans prise de tête. Service rapide et efficace, je recommande les yeux fermés !",
+    text: "Un grand merci pour ce site internet. Tout est clair, pro, moderne. C'est un réel gain de temps, mes clients trouvent facilement mes réalisations et peuvent me contacter sans prise de tête. Service rapide et efficace, je recommande les yeux fermés !",
     clientImage: clientImage,
     name: "Talha Aslan",
     company: "TH Menuiserie",
   },
   {
     id: 2,
-    text: "Je voulais une app vraiment unique pour ma boutique, Ibrahim a tout compris ! Design dynamique, interface intuitive etc.. Mes visiteurs sont bluffés, et moi aussi. Super suivi tout au long du projet, merci !",
+    text: "Je voulais une app vraiment unique pour ma boutique, Ibrahim a tout compris ! Design dynamique, interface intuitive etc.. Mes visiteurs sont bluffés, et moi aussi. Super suivi tout au long du projet, merci !",
     clientImage: clientImage2,
     name: "Rehaima Sourour",
     company: "Mydupes",
   },
   {
     id: 3,
-    text: "Collaboration au top ! Mon site d’événementiel sort du lot et fonctionne à merveille. Un échange très amicale et instructif, force de proposition et toujours ultra réactif. Foncez !",
+    text: "Collaboration au top ! Mon site d’événementiel sort du lot et fonctionne à merveille. Un échange très amicale et instructif, force de proposition et toujours ultra réactif. Foncez !",
     clientImage: clientImage3,
     name: "Mathieu Vidal",
     company: "Vid’Events",
@@ -46,6 +47,29 @@ const testimonialsData = [
 ];
 
 const TestimonialsSection = () => {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    const centerSecondCard = () => {
+      if (window.innerWidth < 1024 && scrollRef.current) {
+        const container = scrollRef.current;
+        const card = container.children[1]; // 2ème témoignage
+        if (card) {
+          const cardRect = card.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          const scrollTo =
+            card.offsetLeft -
+            container.offsetLeft -
+            (containerRect.width / 2 - cardRect.width / 2);
+          container.scrollTo({ left: scrollTo, behavior: "auto" });
+        }
+      }
+    };
+    setTimeout(centerSecondCard, 40);
+    window.addEventListener("resize", centerSecondCard);
+    return () => window.removeEventListener("resize", centerSecondCard);
+  }, []);
+
   return (
     <section className="relative w-full mt-10 sm:mt-12 lg:mt-15 bg-[var(--white)] mb-10 sm:mb-14 lg:mb-20 px-2 sm:px-4 md:px-8 lg:px-0">
       {/* Titre avec smiley à droite */}
@@ -65,16 +89,20 @@ const TestimonialsSection = () => {
           style={{ userSelect: "none" }}
         />
       </div>
-      {/* Testimonials grid */}
+
+      {/* Testimonials carrousel / grid */}
       <div
+        ref={scrollRef}
         className="
-          flex flex-col lg:grid lg:grid-cols-3
+          flex lg:grid lg:grid-cols-3
           gap-4 sm:gap-6 lg:gap-8
           w-full
-          overflow-x-auto lg:overflow-x-visible
           lg:max-w-[1280px] mx-auto
+
+          overflow-x-auto lg:overflow-x-visible scroll-smooth snap-x lg:snap-none
+          no-scrollbar
         "
-        style={{ scrollSnapType: "x mandatory" }}
+        style={{ WebkitOverflowScrolling: "touch" }}
       >
         {testimonialsData.map((testimonial) => (
           <article
@@ -82,21 +110,20 @@ const TestimonialsSection = () => {
             className="
               flex flex-col justify-between bg-white
               p-5 sm:p-7 md:p-6 lg:p-8
-              gap-6 sm:gap-7 lg:gap-8 shadow text-black w-full
+              gap-6 sm:gap-7 lg:gap-8 shadow text-black
               min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]
               flex-shrink-0 lg:flex-shrink
               lg:h-full
               mx-auto lg:mx-0
-              max-w-[430px] sm:max-w-full
-              scrollSnapAlign-start
+              max-w-[350px] sm:max-w-full
+              snap-center lg:snap-none
             "
-            style={{ height: "100%" }}
           >
             {/* Témoignage */}
             <blockquote className="text-base sm:text-lg lg:text-lg leading-relaxed mb-1 opacity-95 font-[Epilogue,Helvetica]">
               “{testimonial.text}”
             </blockquote>
-            {/* Identité alignée en bas */}
+            {/* Identité */}
             <div className="flex flex-row items-center gap-3 sm:gap-4 mt-auto">
               <img
                 src={testimonial.clientImage}
@@ -116,8 +143,20 @@ const TestimonialsSection = () => {
           </article>
         ))}
       </div>
-      {/* Astuce mobile : un peu de margin bottom si besoin pour scroll */}
+
+      {/* Astuce mobile : un peu de margin bottom si besoin pour scroll */}
       <div className="block lg:hidden h-6" />
+
+      {/* Masquer la scrollbar */}
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };

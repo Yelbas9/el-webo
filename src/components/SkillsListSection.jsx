@@ -2,8 +2,18 @@ import ordiElWebo from "/ordi.webp";
 import ICONShopElWebo from "/shop.webp";
 import iconTelElWebo from "/tel.webp";
 import hommepic from "/hommepic.webp"; // <-- Ton image picto
+import { useRef, useEffect } from "react";
 
+// NOUVEL ORDRE : Application Mobile, Site Vitrine, Site E-Commerce
 const servicesData = [
+  {
+    id: 3,
+    image: iconTelElWebo,
+    alt: "Icon tel el webo",
+    title: "Application Mobile",
+    description:
+      "Crée une appli mobile qui te ressemble : performante, intuitive et pensée pour engager tes utilisateurs au quotidien.",
+  },
   {
     id: 1,
     image: ordiElWebo,
@@ -20,17 +30,37 @@ const servicesData = [
     description:
       "Développe ta boutique en ligne sur-mesure : une expérience d’achat simple, rapide et efficace pour booster tes ventes.",
   },
-  {
-    id: 3,
-    image: iconTelElWebo,
-    alt: "Icon tel el webo",
-    title: "Application Mobile",
-    description:
-      "Crée une appli mobile qui te ressemble : performante, intuitive et pensée pour engager tes utilisateurs au quotidien.",
-  },
 ];
 
 const SkillsListSection = () => {
+  // Pour centrer la 2e carte au chargement (mobile uniquement)
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    // Sur mobile uniquement, centre la carte du milieu
+    const handleScrollToCenter = () => {
+      if (window.innerWidth < 768 && scrollRef.current) {
+        const container = scrollRef.current;
+        const card = container.children[1]; // 2e carte (index 1)
+        if (card) {
+          // Décale pour centrer la carte du milieu
+          const cardRect = card.getBoundingClientRect();
+          const containerRect = container.getBoundingClientRect();
+          const scrollTo =
+            card.offsetLeft -
+            container.offsetLeft -
+            (containerRect.width / 2 - cardRect.width / 2);
+          container.scrollTo({ left: scrollTo, behavior: "auto" });
+        }
+      }
+    };
+    // Un petit timeout pour laisser le layout se stabiliser
+    setTimeout(handleScrollToCenter, 40);
+    // Sur resize, recentre (optionnel)
+    window.addEventListener("resize", handleScrollToCenter);
+    return () => window.removeEventListener("resize", handleScrollToCenter);
+  }, []);
+
   return (
     <section
       id="services"
@@ -43,18 +73,26 @@ const SkillsListSection = () => {
 
       {/* Cartes services */}
       <div
+        ref={scrollRef}
         className="
-        grid grid-cols-1 
-        sm:grid-cols-2 
-        md:grid-cols-3 
-        gap-5 
-        md:gap-8 
-        w-full 
-        max-w-[1280px]
-        px-0
-        md:px-4
-        xl:px-0
-      "
+          flex md:grid
+          md:grid-cols-3
+          sm:grid-cols-2
+          grid-cols-1
+          gap-5 
+          md:gap-8 
+          w-full 
+          max-w-[1280px]
+          px-0
+          md:px-4
+          xl:px-0
+
+          overflow-x-auto md:overflow-x-visible scroll-smooth snap-x md:snap-none
+          no-scrollbar
+        "
+        style={{
+          WebkitOverflowScrolling: "touch",
+        }}
       >
         {servicesData.map((service) => (
           <article
@@ -64,6 +102,8 @@ const SkillsListSection = () => {
               px-4 py-8 sm:px-7 sm:py-10 xl:px-10 xl:py-12 
               h-auto xl:h-[480px] 
               justify-center gap-4 md:gap-8 shadow transition hover:shadow-xl
+
+              flex-shrink-0 w-[80vw] max-w-[330px] md:max-w-none md:w-auto snap-center md:snap-none
             "
           >
             {/* Bloc image + titre */}
@@ -80,10 +120,10 @@ const SkillsListSection = () => {
               />
               <h3
                 className="
-                font-bold font-[Epilogue,Helvetica] text-black 
-                text-[20px] sm:text-[22px] md:text-[27px] 
-                text-center leading-[1.2]
-              "
+                  font-bold font-[Epilogue,Helvetica] text-black 
+                  text-[20px] sm:text-[22px] md:text-[27px] 
+                  text-center leading-[1.2]
+                "
               >
                 {service.title}
               </h3>
@@ -92,10 +132,10 @@ const SkillsListSection = () => {
             <div className="w-full flex flex-col items-center gap-1 flex-1">
               <p
                 className="
-                font-[Epilogue,Helvetica] text-black text-center 
-                text-[15px] sm:text-[16px] md:text-[17px] 
-                leading-[22px] md:leading-[27px] opacity-90
-              "
+                  font-[Epilogue,Helvetica] text-black text-center 
+                  text-[15px] sm:text-[16px] md:text-[17px] 
+                  leading-[22px] md:leading-[27px] opacity-90
+                "
               >
                 {service.description}
               </p>
@@ -110,13 +150,13 @@ const SkillsListSection = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="
-    bg-[var(--yellow)] rounded-[20px] inline-flex items-center justify-center gap-2.5 
-     px-8 py-3 md:px-16 md:py-6 
-    font-bold text-[#1c1c1c] 
-    text-lg sm:text-xl md:text-2xl
-    hover:bg-[#e6be00] transition-colors duration-200 shadow
-    whitespace-nowrap
-  "
+          bg-[var(--yellow)] rounded-[20px] inline-flex items-center justify-center gap-2.5 
+          px-8 py-3 md:px-16 md:py-6 
+          font-bold text-[#1c1c1c] 
+          text-lg sm:text-xl md:text-2xl
+          hover:bg-[#e6be00] transition-colors duration-200 shadow
+          whitespace-nowrap
+        "
       >
         Je demande un devis
       </a>
@@ -133,6 +173,17 @@ const SkillsListSection = () => {
         draggable={false}
         style={{ userSelect: "none" }}
       />
+
+      {/* SCSS/TAILWIND pour cacher la scrollbar */}
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };
