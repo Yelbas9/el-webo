@@ -6,20 +6,65 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
-# Les règles sont évaluées dans l'ordre : l'API doit passer AVANT le
-# repli monopage, sinon /api/track renverrait index.html.
+# Les règles sont évaluées dans l'ordre. Les fichiers réellement présents
+# (images, assets) sont servis avant toute règle.
+
+# 1. L'API doit passer avant tout le reste.
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
   status = 200
 
-# Application monopage : toute URL inconnue est servie par index.html.
-# Indispensable pour que /mentions-legales fonctionne au rechargement.
-# (Netlify traite les envois de formulaires avant cette règle.)
+# 2. Les routes connues de l'application sont servies par index.html en 200.
+#    ⚠️ Toute nouvelle route ajoutée dans src/App.jsx doit être ajoutée ici,
+#    sinon elle renverra une 404.
+[[redirects]]
+  from = "/creation-site-vitrine"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/creation-site-ecommerce"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/creation-application"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/realisations"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/tarifs"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/a-propos"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/mentions-legales"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/index.html"
+  status = 200
+
+# 3. Tout le reste : l'application affiche sa page 404 ET le serveur renvoie
+#    un vrai code 404. Sans cette dernière ligne, une URL inexistante
+#    répondrait 200 — ce que Google traite comme un « soft 404 ».
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 404
 
 [[headers]]
   for = "/*"

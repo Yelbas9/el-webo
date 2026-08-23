@@ -15,6 +15,9 @@ import ContactFormSection from "./components/ContactFormSection";
 import ContactModal from "./components/ContactModal";
 import BackToTop from "./components/BackToTop";
 import Admin from "./pages/Admin";
+import NotFound from "./pages/NotFound";
+import Realisations from "./pages/Realisations";
+import Tarifs from "./pages/Tarifs";
 import { trackPageView } from "./lib/analytics";
 
 /** Remet la page en haut lors d'un changement de route (sauf ancre). */
@@ -102,6 +105,14 @@ const Layout = () => {
             />
           ))}
           <Route
+            path="/realisations"
+            element={<Realisations onContactClick={openContactModal} />}
+          />
+          <Route
+            path="/tarifs"
+            element={<Tarifs onContactClick={openContactModal} />}
+          />
+          <Route
             path="/a-propos"
             element={<APropos onContactClick={openContactModal} />}
           />
@@ -109,7 +120,7 @@ const Layout = () => {
           <Route path="/admin" element={<Admin />} />
           <Route
             path="*"
-            element={<Home onContactClick={openContactModal} />}
+            element={<NotFound onContactClick={openContactModal} />}
           />
         </Routes>
       </main>

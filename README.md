@@ -57,12 +57,20 @@ src/
 
 | URL | Page |
 |---|---|
-| `/` | Accueil |
+| `/` | Accueil (argumentaire complet) |
+| `/realisations` | Portfolio détaillé |
+| `/tarifs` | Formules et ce qui fait varier un devis |
 | `/creation-site-vitrine` | Service — site vitrine |
 | `/creation-site-ecommerce` | Service — boutique en ligne |
 | `/creation-application` | Service — application |
 | `/a-propos` | À propos |
 | `/mentions-legales` | Mentions légales & confidentialité |
+| *(toute autre URL)* | Page 404 |
+
+⚠️ **Toute nouvelle route ajoutée dans `src/App.jsx` doit aussi être déclarée
+dans `netlify.toml`.** Sans sa règle de redirection, elle renverra une 404 :
+c'est le prix à payer pour que les vraies URL inconnues renvoient un vrai
+code 404 plutôt qu'un « soft 404 » en 200.
 
 Les couleurs de marque sont exposées à la fois en variables CSS
 (`--yellow`, `--white`…) et en tokens Tailwind v4 (`bg-brand-yellow`,

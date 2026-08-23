@@ -241,6 +241,30 @@ const ContactFormSection = () => {
         <p>&copy; {new Date().getFullYear()} El Webo. Tous droits réservés.</p>
         <nav aria-label="Liens du pied de page" className="flex flex-wrap justify-center gap-x-5 gap-y-1">
           <Link
+            to="/realisations"
+            className="py-2 hover:text-[var(--yellow)] transition-colors"
+          >
+            Réalisations
+          </Link>
+          <Link
+            to="/tarifs"
+            className="py-2 hover:text-[var(--yellow)] transition-colors"
+          >
+            Tarifs
+          </Link>
+          <Link
+            to="/#methode"
+            className="py-2 hover:text-[var(--yellow)] transition-colors"
+          >
+            Méthode
+          </Link>
+          <Link
+            to="/#faq"
+            className="py-2 hover:text-[var(--yellow)] transition-colors"
+          >
+            FAQ
+          </Link>
+          <Link
             to="/creation-site-vitrine"
             className="py-2 hover:text-[var(--yellow)] transition-colors"
           >
