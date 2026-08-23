@@ -7,23 +7,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Dependency directories
 node_modules
 dist
 dist-ssr
 *.local
-
-# Yarn Berry (Yarn 2+) - ignore le cache, garde le reste
-.yarn/cache/
-.yarn/unplugged/
-.yarn/build-state.yml
-.yarn/install-state.gz
-.pnp.*
-# On garde :
-# .yarn/releases/
-# .yarn/plugins/
-# .yarn/sdks/
-# .yarn/versions/
 
 # Editor directories and files
 .vscode/*
@@ -35,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Netlify folder
+.netlify
+
+# Yarn (linker node-modules)
+.yarn/*
+!.yarn/patches

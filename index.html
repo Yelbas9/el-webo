@@ -2,82 +2,159 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>El Webo – Création de sites web modernes et sur-mesure</title>
+    <title data-static-seo>
+      El Webo – Création de sites web & applications sur mesure | Développeur
+      React
+    </title>
     <meta
+      data-static-seo
       name="description"
-      content="Développeur web freelance spécialisé React & UX/UI. Création de sites vitrines, e-commerce et applications sur-mesure à Paris et partout en France."
+      content="Création de sites web et d'applications sur mesure en React, en Gironde et partout en France. Site vitrine à partir de 400 €, boutique en ligne dès 800 €. Devis gratuit."
     />
+    <link data-static-seo rel="canonical" href="https://el-webo.netlify.app/" />
     <meta name="author" content="El Webo" />
-    <meta
-      name="keywords"
-      content="développeur web, freelance, React, UX, UI, site vitrine, site web, création site internet, Paris, El Webo"
-    />
-    <meta name="robots" content="index,follow" />
+    <meta name="theme-color" content="#1c1c1c" />
+    <meta data-static-seo name="robots" content="index, follow" />
 
-    <!-- OpenGraph pour Facebook/LinkedIn/Slack, etc. -->
-    <meta
-      property="og:title"
-      content="El Webo – Création de sites web modernes et sur-mesure"
-    />
-    <meta
-      property="og:description"
-      content="Développeur web freelance spécialisé React & UX/UI. Création de sites vitrines, e-commerce et applications sur-mesure à Paris et partout en France."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://el-webo.netlify.app/" />
+    <!-- Open Graph / réseaux sociaux -->
+    <meta data-static-seo property="og:type" content="website" />
+    <meta data-static-seo property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="El Webo" />
-    <!-- Image de partage (remplace par l’URL de ton image SEO adaptée) -->
-    <meta property="og:image" content="https://el-webo.netlify.app/ew.webp" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="El Webo – Création de sites web modernes et sur-mesure"
+    <meta data-static-seo property="og:title"
+      content="El Webo – Création de sites web & applications sur mesure"
     />
-    <meta
-      name="twitter:description"
-      content="Développeur web freelance spécialisé React & UX/UI. Création de sites vitrines, e-commerce et applications sur-mesure à Paris et partout en France."
+    <meta data-static-seo property="og:description"
+      content="Sites vitrines, e-commerce et applications en React. Design unique, performances au top, devis gratuit sous 24h."
     />
-    <meta name="twitter:image" content="https://el-webo.netlify.app/ew.webp" />
+    <meta data-static-seo property="og:url" content="https://el-webo.netlify.app/" />
+    <meta data-static-seo property="og:image" content="https://el-webo.netlify.app/og.jpg" />
+    <meta data-static-seo property="og:image:width" content="1200" />
+    <meta data-static-seo property="og:image:height" content="630" />
+    <meta data-static-seo property="og:image:alt"
+      content="El Webo – création de sites web et d'applications"
+    />
+    <meta data-static-seo name="twitter:card" content="summary_large_image" />
+    <meta data-static-seo name="twitter:site" content="@EL_WEBO_DEV" />
+    <meta data-static-seo name="twitter:title"
+      content="El Webo – Création de sites web & applications sur mesure"
+    />
+    <meta data-static-seo name="twitter:description"
+      content="Sites vitrines, e-commerce et applications en React. Design unique, performances au top, devis gratuit sous 24h."
+    />
+    <meta data-static-seo name="twitter:image" content="https://el-webo.netlify.app/og.jpg" />
 
-    <!-- Google Fonts : Epilogue -->
+    <!-- Google Fonts : Epilogue (variable, italiques incluses) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Favicon WebP -->
-    <link rel="icon" type="image/webp" href="/ew.webp" />
-    <!-- Si tu veux, ajoute aussi PNG pour compatibilité totale -->
-    <!-- <link rel="icon" type="image/png" href="/favicon.png" /> -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Manifest PWA (optionnel, si tu veux rendre installable) -->
-    <!-- <link rel="manifest" href="/manifest.webmanifest"> -->
-
-    <!-- Couleur thème navigateur mobile -->
-    <meta name="theme-color" content="#F7F5F2" />
-
-    <!-- Canonical URL (SEO anti-duplicate) -->
-    <link rel="canonical" href="https://el-webo.netlify.app/" />
+    <!-- Données structurées : entreprise + prestations -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "@id": "https://el-webo.netlify.app/#business",
+        "name": "El Webo",
+        "description": "Création de sites web vitrines, de boutiques en ligne et d'applications sur mesure en React, depuis la Gironde et partout en France.",
+        "url": "https://el-webo.netlify.app/",
+        "image": "https://el-webo.netlify.app/og.jpg",
+        "logo": "https://el-webo.netlify.app/logo.png",
+        "email": "elwebo.dev@gmail.com",
+        "priceRange": "€€",
+        "founder": { "@type": "Person", "name": "Ibrahim Yelbas" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Saint-Sulpice-et-Cameyrac",
+          "postalCode": "33450",
+          "addressRegion": "Gironde",
+          "addressCountry": "FR"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "France" },
+          { "@type": "AdministrativeArea", "name": "Gironde" },
+          { "@type": "City", "name": "Bordeaux" }
+        ],
+        "availableLanguage": ["fr"],
+        "sameAs": [
+          "https://www.instagram.com/el.webo.dev/",
+          "https://www.tiktok.com/@el.webo.dev",
+          "https://github.com/Yelbas9",
+          "https://x.com/EL_WEBO_DEV"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Prestations El Webo",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Site vitrine",
+                "description": "Site vitrine sur mesure pour présenter son activité et générer des contacts."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Site e-commerce",
+                "description": "Boutique en ligne sur mesure : catalogue, panier et paiement sécurisé."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Application mobile",
+                "description": "Application mobile iOS et Android développée en React Native."
+              }
+            }
+          ]
+        }
+      }
+    </script>
   </head>
-  <body class="bg-[var(--white)] font-epilogue antialiased">
+  <body class="font-epilogue antialiased">
     <div id="root"></div>
 
-    <!-- Formulaires fantômes pour détection Netlify -->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-    </form>
+    <!--
+      Formulaires statiques détectés par Netlify au build.
+      Les formulaires React postent ensuite sur ces noms. Ne pas supprimer.
+    -->
     <form name="contact-modal" netlify netlify-honeypot="bot-field" hidden>
       <input type="text" name="nom" />
       <input type="email" name="email" />
       <input type="tel" name="tel" />
+      <input type="text" name="projet" />
+      <input type="text" name="budget" />
+      <input type="text" name="echeance" />
       <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
     </form>
+    <form name="contact-rappel" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="nom" />
+      <input type="email" name="email" />
+      <input type="text" name="bot-field" />
+    </form>
+
+    <noscript>
+      <div style="padding: 24px; font-family: sans-serif">
+        <h1>El Webo – Création de sites web et d'applications</h1>
+        <p>
+          Ce site a besoin de JavaScript pour s'afficher. Vous pouvez me
+          contacter directement à
+          <a href="mailto:elwebo.dev@gmail.com">elwebo.dev@gmail.com</a>.
+        </p>
+      </div>
+    </noscript>
 
     <script type="module" src="/src/main.jsx"></script>
   </body>

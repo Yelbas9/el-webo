@@ -1,0 +1,41 @@
+[build]
+  command = "yarn build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Les règles sont évaluées dans l'ordre : l'API doit passer AVANT le
+# repli monopage, sinon /api/track renverrait index.html.
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+# Application monopage : toute URL inconnue est servie par index.html.
+# Indispensable pour que /mentions-legales fonctionne au rechargement.
+# (Netlify traite les envois de formulaires avant cette règle.)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+
+# Les fichiers générés par Vite portent un hash : cache maximal.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/projets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

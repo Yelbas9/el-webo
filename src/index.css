@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+/* Tokens Tailwind v4 (config CSS-first).
+   Noms préfixés "brand" pour ne pas écraser les couleurs par défaut
+   (bg-white doit rester blanc pur, il est utilisé partout). */
+@theme {
+  --font-epilogue: "Epilogue", Helvetica, sans-serif;
+
+  --color-brand-yellow: #ffd300;
+  --color-brand-yellow-dark: #e6be00;
+  --color-brand-ink: #1c1c1c;
+  --color-brand-cream: #f7f5f2;
+  --color-brand-red: #ff6250;
+}
+
 /* Variables CSS root */
 :root {
   --black: rgba(45, 45, 45, 1);
@@ -56,6 +69,23 @@
 
 html {
   scroll-behavior: smooth;
+  /* La navbar est collante : on décale les ancres pour ne pas passer dessous */
+  scroll-padding-top: 104px;
+}
+
+body {
+  background-color: var(--white);
+  font-family: var(--body-text-font-family);
+}
+
+/* Focus visible cohérent sur tout le site (clavier uniquement) */
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.on-dark :focus-visible {
+  outline-color: #ffd300;
 }
 
 @keyframes fadeIn {
@@ -70,4 +100,91 @@ html {
 }
 .animate-fadeIn {
   animation: fadeIn 0.5s both;
+}
+
+/* Gouttières latérales communes à toutes les sections.
+   Évite que le contenu colle aux bords sur mobile et tablette. */
+.gutter {
+  padding-inline: 1.25rem;
+}
+@media (min-width: 640px) {
+  .gutter {
+    padding-inline: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .gutter {
+    padding-inline: 2.5rem;
+  }
+}
+@media (min-width: 1360px) {
+  .gutter {
+    padding-inline: 0;
+  }
+}
+
+/* Léger soulèvement au survol, partagé par les cartes et les boutons */
+.lift {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.lift:hover {
+  transform: translateY(-4px);
+}
+.lift:active {
+  transform: translateY(-1px);
+}
+
+/* Entrée du héros au chargement */
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: riseIn 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Apparition au scroll (voir composant Reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respect du réglage système « réduire les animations » */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .lift:hover,
+  .lift:active {
+    transform: none;
+  }
+  .rise {
+    animation: none;
+  }
 }
