@@ -241,7 +241,7 @@ const ContactFormSection = () => {
         <p>&copy; {new Date().getFullYear()} El Webo. Tous droits réservés.</p>
         <nav aria-label="Liens du pied de page" className="flex flex-wrap justify-center gap-x-5 gap-y-1">
           <Link
-            to="/realisations"
+            to="/#mes-projets"
             className="py-2 hover:text-[var(--yellow)] transition-colors"
           >
             Réalisations

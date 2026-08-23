@@ -16,7 +16,6 @@ import ContactModal from "./components/ContactModal";
 import BackToTop from "./components/BackToTop";
 import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
-import Realisations from "./pages/Realisations";
 import Tarifs from "./pages/Tarifs";
 import { trackPageView } from "./lib/analytics";
 
@@ -24,7 +23,16 @@ import { trackPageView } from "./lib/analytics";
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
   useEffect(() => {
-    if (hash) return;
+    // Lien vers une ancre (ex. /#faq depuis une autre page) : react-router
+    // ne fait pas défiler tout seul, il faut viser l'élément une fois monté.
+    if (hash) {
+      const timer = setTimeout(() => {
+        document
+          .getElementById(hash.slice(1))
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 80);
+      return () => clearTimeout(timer);
+    }
     window.scrollTo(0, 0);
   }, [pathname, hash]);
   return null;
@@ -104,10 +112,6 @@ const Layout = () => {
               }
             />
           ))}
-          <Route
-            path="/realisations"
-            element={<Realisations onContactClick={openContactModal} />}
-          />
           <Route
             path="/tarifs"
             element={<Tarifs onContactClick={openContactModal} />}
