@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
 import { ANALYTICS } from "../config";
 
-// ⚠️ À COMPLÉTER avant mise en ligne : ces informations sont obligatoires
-// (article 6 de la LCEN). Remplace chaque valeur « À compléter ».
+// Informations légales obligatoires (article 6 de la LCEN).
 const editeur = {
   raisonSociale: "El Webo",
   statut: "Entreprise individuelle (micro-entreprise)",
-  siren: "À compléter — ton numéro SIREN ou SIRET",
-  adresse: "Saint-Sulpice-et-Cameyrac (33450) — adresse complète à compléter",
+  siren: "SIREN 100 579 804 — SIRET 100 579 804 00012",
+  adresse: "5 impasse des Pruniers, 33450 Saint-Sulpice-et-Cameyrac, France",
   email: "elwebo.dev@gmail.com",
   directeurPublication: "Ibrahim Yelbas",
   tva: "TVA non applicable, article 293 B du CGI",
