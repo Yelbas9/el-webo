@@ -153,12 +153,6 @@ const NavigationMenuSection = ({ onContactClick }) => {
           )}
         </li>
 
-        <li>
-          <Link to="/#mes-projets" className={linkClass({ isActive: false })}>
-            Réalisations
-          </Link>
-        </li>
-
         {mainLinks.map((item) => (
           <li key={item.to}>
             <NavLink to={item.to} className={linkClass}>
@@ -256,15 +250,6 @@ const NavigationMenuSection = ({ onContactClick }) => {
         <hr className="my-3 border-black/10" />
 
         <ul className="flex flex-col gap-1">
-          <li>
-            <Link
-              to="/#mes-projets"
-              className="block rounded-[10px] px-3 py-3 font-semibold text-[19px] text-black hover:bg-black/5 transition-colors"
-              tabIndex={menuOpen ? 0 : -1}
-            >
-              Réalisations
-            </Link>
-          </li>
           {mainLinks.map((item) => (
             <li key={item.to}>
               <NavLink
