@@ -3,6 +3,7 @@ import Seo from "../components/Seo";
 import { services } from "../data/services";
 import Reveal from "../components/Reveal";
 import ServiceIcon from "../components/ServiceIcon";
+import SkillsOverviewSection from "../components/SkillsOverviewSection";
 
 // Parcours en étapes courtes plutôt qu'en gros pavés de texte.
 const etapes = [
@@ -53,15 +54,6 @@ const valeurs = [
     title: "Le prix annoncé est le prix payé",
     text: "Le devis est détaillé ligne par ligne et je m'y tiens. Si le périmètre change, on en parle avant, jamais après.",
   },
-];
-
-const stack = [
-  { src: "/react.webp", label: "React" },
-  { src: "/tailwind.webp", label: "Tailwind CSS" },
-  { src: "/nodejs.webp", label: "Node.js" },
-  { src: "/git.webp", label: "Git" },
-  { src: "/img/mongodb.webp", label: "MongoDB" },
-  { src: "/img/react-native.webp", label: "React Native" },
 ];
 
 const APropos = ({ onContactClick }) => {
@@ -192,32 +184,11 @@ const APropos = ({ onContactClick }) => {
           </ol>
         </section>
 
-        {/* Outils */}
-        <section className="bg-[#1c1c1c] on-dark rounded-[14px] px-6 py-8 md:px-10 md:py-10">
-          <h2 className="font-black italic font-[Epilogue,Helvetica] text-white text-[1.5rem] md:text-[1.9rem] leading-tight text-center">
-            Ce avec quoi je travaille
-          </h2>
-          <ul className="mt-7 flex flex-wrap items-center justify-center gap-x-7 gap-y-6 md:gap-x-12">
-            {stack.map((t) => (
-              <li key={t.label} className="flex flex-col items-center gap-2.5">
-                <img
-                  src={t.src}
-                  alt=""
-                  aria-hidden="true"
-                  width="48"
-                  height="48"
-                  loading="lazy"
-                  className="h-[34px] md:h-[42px] w-auto object-contain"
-                />
-                <span className="text-[13px] md:text-[14px] text-white/75">
-                  {t.label}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
+        {/* Compétences — rapatriées de l'accueil : c'est ici qu'un visiteur
+          qui veut savoir avec quoi je travaille vient les chercher. */}
+      <SkillsOverviewSection compact />
 
-        {/* Façon de travailler */}
+      {/* Façon de travailler */}
         <section>
           <h2 className="font-black italic font-[Epilogue,Helvetica] text-black text-[1.75rem] md:text-[2.2rem] leading-[1.1] mb-8 md:mb-12 text-center">
             Ma façon de travailler

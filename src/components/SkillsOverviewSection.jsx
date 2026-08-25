@@ -137,13 +137,15 @@ const hiddenClass = (idx) => {
   return "hidden";
 };
 
-const SkillsOverviewSection = () => {
+const SkillsOverviewSection = ({ compact = false }) => {
   const [showMore, setShowMore] = useState(false);
 
   return (
     <section
       id="competences"
-      className="relative w-full flex flex-col items-center gap-4 pt-8 sm:pt-12 md:pt-20 pb-8"
+      className={`relative w-full flex flex-col items-center gap-4 ${
+        compact ? "" : "pt-8 sm:pt-12 md:pt-20 pb-8"
+      }`}
     >
       <SectionTitle
         icon={satoshiBoldExtrabold2}

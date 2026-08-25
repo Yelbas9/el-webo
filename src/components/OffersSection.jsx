@@ -212,7 +212,7 @@ const OffersSection = ({ onContactClick, compact = false }) => {
 
       {cards}
 
-      <p className="max-w-[680px] px-2 text-center text-[14.5px] md:text-[15px] leading-[23px] text-white/60">
+      <p className="max-w-[680px] pl-[58px] pr-2 sm:pl-2 text-center text-[14.5px] md:text-[15px] leading-[23px] text-white/60">
         Besoin d&apos;autre chose — refonte, maintenance, coup de main
         ponctuel&#8239;? Écrivez-moi, on trouvera la bonne formule.
       </p>
@@ -228,7 +228,7 @@ const OffersSection = ({ onContactClick, compact = false }) => {
         decoding="async"
         className="
           absolute bottom-0 left-[calc(var(--gutter,0px)*-1)]
-          w-[80px] sm:w-[100px] md:w-[120px] xl:w-[150px]
+          w-[62px] sm:w-[76px] md:w-[92px] xl:w-[110px]
           pointer-events-none select-none
         "
         draggable={false}

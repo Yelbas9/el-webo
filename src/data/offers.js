@@ -21,7 +21,7 @@ export const offers = [
     features: [
       "Design sur mesure, sans template",
       "Jusqu'à 5 pages",
-      "Version mobile soignée",
+      "Impeccable sur mobile comme sur ordinateur",
       "Formulaire de contact",
       "Fondations SEO et données structurées",
       "Hébergement et nom de domaine offerts la 1re année",

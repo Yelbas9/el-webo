@@ -1,15 +1,15 @@
 // Arguments affichés dès le premier écran. Ce sont des engagements
 // commerciaux : ils doivent rester alignés avec offers.js et la FAQ.
 const argumentsCles = [
-  "Hébergement et nom de domaine offerts la 1re année",
-  "Sans abonnement obligatoire, le site vous appartient",
-  "Devis gratuit, détaillé et sans engagement",
+  "Impeccable sur mobile comme sur ordinateur",
+  "Hébergement et domaine offerts la 1re année",
+  "Sans abonnement obligatoire",
 ];
 
 const Check = () => (
   <svg
-    width="16"
-    height="16"
+    width="15"
+    height="15"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -17,7 +17,7 @@ const Check = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
     aria-hidden="true"
-    className="mt-[3px] flex-shrink-0 text-[#009379]"
+    className="flex-shrink-0 text-[#009379]"
   >
     <path d="m5 13 4 4L19 7" />
   </svg>
@@ -33,7 +33,7 @@ const HeaderSection = ({ onContactClick }) => {
   return (
     <header className="relative w-full max-w-[1280px] mx-auto min-h-[400px] md:min-h-[500px] xl:min-h-[440px] flex flex-col md:flex-row items-center md:items-stretch justify-between gap-4 md:gap-8 xl:gap-20">
       {/* Texte à gauche */}
-      <div className="flex flex-col gap-5 xl:gap-7 w-full md:max-w-[54%] xl:max-w-[640px] pt-10 md:pb-12">
+      <div className="flex flex-col gap-5 xl:gap-6 w-full md:max-w-[56%] xl:max-w-[720px] pt-10 md:pb-12">
         <p
           className="rise font-[Epilogue,Helvetica] text-lg sm:text-xl text-black"
           style={{ animationDelay: "40ms" }}
@@ -41,29 +41,39 @@ const HeaderSection = ({ onContactClick }) => {
           React <span className="text-[#2d2d2d]">|</span> UX/UI
         </p>
         <h1
-          className="rise font-black italic font-[Epilogue,Helvetica] text-black text-[2.1rem] sm:text-[2.6rem] md:text-[2.9rem] xl:text-[3.7rem] leading-[1.08]"
+          className="rise font-black italic font-[Epilogue,Helvetica] text-black text-[1.95rem] sm:text-[2.4rem] md:text-[2.5rem] xl:text-[3.2rem] leading-[1.12]"
           style={{ animationDelay: "90ms" }}
         >
-          Votre site internet,
-          <span className="block">en ligne sous 72&nbsp;h</span>
+          Votre site internet prêt à vous apporter des clients,{" "}
+          {/* Surlignage au feutre : le fond ne monte qu'aux deux tiers de la
+              ligne, et box-decoration-clone le répète sur chaque ligne. */}
+          <span
+            className="box-decoration-clone"
+            style={{
+              backgroundImage:
+                "linear-gradient(transparent 64%, var(--yellow) 64%)",
+            }}
+          >
+            en ligne sous 72&nbsp;h dès 400&nbsp;€
+          </span>
         </h1>
         <p
-          className="rise font-[Epilogue,Helvetica] text-[1.05rem] sm:text-[1.15rem] md:text-[1.25rem] leading-[1.5] text-black"
+          className="rise font-[Epilogue,Helvetica] text-[1.02rem] sm:text-[1.12rem] md:text-[1.18rem] leading-[1.5] text-black/85"
           style={{ animationDelay: "140ms" }}
         >
-          Site vitrine sur mesure <strong>à partir de 400&nbsp;€</strong>,
-          développé en React — jamais à partir d’un template. Boutique en ligne
-          dès 800&nbsp;€, application sur devis.
+          Site vitrine, boutique en ligne ou application&#8239;: je conçois des
+          sites <strong>sur mesure</strong>, optimisés pour Google et pensés
+          pour transformer vos visiteurs en clients.
         </p>
 
         <ul
-          className="rise flex flex-col gap-2"
+          className="rise flex flex-wrap gap-2"
           style={{ animationDelay: "170ms" }}
         >
           {argumentsCles.map((argument) => (
             <li
               key={argument}
-              className="flex items-start gap-2 text-[14px] sm:text-[15px] md:text-[16px] font-semibold leading-[21px] text-black"
+              className="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-[#F7F5F2] px-3 py-1.5 text-[12.5px] sm:text-[13px] md:text-[14px] font-semibold leading-tight text-[#1c1c1c]"
             >
               <Check />
               {argument}
@@ -79,7 +89,7 @@ const HeaderSection = ({ onContactClick }) => {
           <button
             type="button"
             onClick={onContactClick}
-            className="lift inline-flex items-center justify-center bg-[#FFD300] rounded-[20px] px-8 py-4 xl:px-11 xl:py-5 font-bold text-[#1c1c1c] text-[18px] xl:text-[20px] leading-none shadow-sm hover:bg-[#e6be00] hover:shadow-lg cursor-pointer"
+            className="lift inline-flex items-center justify-center bg-[#FFD300] rounded-[20px] px-8 py-4 xl:px-10 xl:py-5 font-bold text-[#1c1c1c] text-[17px] xl:text-[19px] leading-none shadow-sm hover:bg-[#e6be00] hover:shadow-lg cursor-pointer"
             style={{ minHeight: "48px" }}
           >
             Obtenir mon devis gratuit
@@ -87,10 +97,10 @@ const HeaderSection = ({ onContactClick }) => {
           <button
             type="button"
             onClick={scrollToOffers}
-            className="lift inline-flex items-center justify-center gap-2 rounded-[20px] border-2 border-[#1c1c1c] px-7 py-4 xl:px-9 xl:py-5 font-bold text-[#1c1c1c] text-[18px] xl:text-[20px] leading-none hover:bg-[#1c1c1c] hover:text-white cursor-pointer"
+            className="lift inline-flex items-center justify-center gap-2 rounded-[20px] border-2 border-[#1c1c1c] px-7 py-4 xl:px-8 xl:py-5 font-bold text-[#1c1c1c] text-[17px] xl:text-[19px] leading-none hover:bg-[#1c1c1c] hover:text-white cursor-pointer"
             style={{ minHeight: "48px" }}
           >
-            Voir les formules
+            Voir les tarifs dès 400&nbsp;€
             <span aria-hidden="true">&darr;</span>
           </button>
         </div>
@@ -116,7 +126,7 @@ const HeaderSection = ({ onContactClick }) => {
             height="542"
             fetchPriority="high"
             decoding="async"
-            className="w-[40%] max-w-[200px] h-auto object-contain -mb-5"
+            className="w-[38%] max-w-[190px] h-auto object-contain -mb-5"
             draggable={false}
             style={{ userSelect: "none" }}
           />
@@ -132,7 +142,7 @@ const HeaderSection = ({ onContactClick }) => {
           height="542"
           fetchPriority="high"
           decoding="async"
-          className="w-full max-w-[280px] lg:max-w-[330px] xl:max-w-[390px] h-auto object-contain -mb-4"
+          className="w-full max-w-[260px] lg:max-w-[310px] xl:max-w-[370px] h-auto object-contain -mb-4"
           draggable={false}
           style={{ userSelect: "none" }}
         />

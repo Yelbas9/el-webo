@@ -1,6 +1,5 @@
 import HeaderSection from "../components/HeaderSection";
 import OffersSection from "../components/OffersSection";
-import SkillsOverviewSection from "../components/SkillsOverviewSection";
 import ProjectsSection from "../components/ProjectsSection";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ProcessSection from "../components/ProcessSection";
@@ -74,7 +73,6 @@ const Home = ({ onContactClick }) => {
         <div className="max-w-[1280px] mx-auto gutter">
           <ProjectsSection onContactClick={onContactClick} />
           <TestimonialsSection />
-          <SkillsOverviewSection />
           <ProcessSection />
           <FaqSection />
         </div>

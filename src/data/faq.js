@@ -12,11 +12,11 @@ export const faqItems = [
   },
   {
     q: "Y a-t-il un abonnement à payer tous les mois ?",
-    a: "Non, aucun abonnement obligatoire. Vous payez la création de votre site, et il vous appartient. L'hébergement et le nom de domaine sont offerts la première année ; ensuite, vous pouvez soit les reprendre à votre nom, soit me confier leur renouvellement. Dans tous les cas, vous n'êtes jamais prisonnier d'un prestataire.",
+    a: "Aucun abonnement n'est obligatoire : vous payez la création de votre site, et il vous appartient. L'hébergement et le nom de domaine sont offerts la première année ; ensuite, vous pouvez soit les reprendre à votre nom, soit me confier leur renouvellement. Une formule de maintenance existe si vous préférez être tranquille sur la durée, mais elle reste un choix, jamais une condition.",
   },
   {
     q: "Et si mon site a un problème après la livraison ?",
-    a: "Je ne disparais pas une fois le site en ligne. Vous bénéficiez d'un accompagnement après la livraison pour corriger tout souci, et je reste joignable pour faire évoluer votre site. Comme il n'y a pas d'abonnement obligatoire, vous n'avez rien à payer pour me joindre en cas de problème : c'est justement l'intérêt de travailler avec la personne qui a codé le site plutôt qu'avec une plateforme.",
+    a: "Je ne disparais pas une fois le site en ligne : la période qui suit la livraison est couverte, et tout ce qui relève d'un défaut de ma part est corrigé sans frais. Au-delà, deux possibilités. Sans maintenance, vous restez libre de tout engagement et une intervention est facturée à l'acte, selon le temps passé. Avec une formule de maintenance, les corrections, les mises à jour et les petites évolutions sont couvertes et vous n'avez plus à y penser — c'est en général l'option la plus économique dès qu'un site vit vraiment. On en parle au moment du devis, sans obligation.",
   },
   {
     q: "Est-ce que je pourrai modifier mon site moi-même ?",
