@@ -3,9 +3,9 @@ import { offers } from "../data/offers";
 import { faqItems } from "../data/faq";
 import Seo from "../components/Seo";
 import Reveal from "../components/Reveal";
-import PricingSection from "../components/PricingSection";
+import OffersSection from "../components/OffersSection";
 
-// Ce qui fait bouger un devis. Adapte librement à ta réalité.
+// Ce qui fait bouger un devis.
 const facteurs = [
   {
     title: "Le nombre de pages",
@@ -30,8 +30,8 @@ const toujoursInclus = [
   "Un devis détaillé ligne par ligne, sans engagement",
   "Une version mobile soignée, pensée en premier",
   "Les fondations du référencement naturel",
-  "La mise en ligne : domaine, hébergement, HTTPS",
-  "Les accès à votre nom : le site vous appartient",
+  "L'hébergement et le nom de domaine, offerts la première année",
+  "Les accès à votre nom : le site vous appartient, sans abonnement",
 ];
 
 const Check = () => (
@@ -76,7 +76,7 @@ const Tarifs = ({ onContactClick }) => {
     <div className="w-full bg-[#F7F5F2]">
       <Seo
         title="Tarifs – création de site web sur mesure | El Webo"
-        description="Site vitrine à partir de 400 €, boutique en ligne dès 800 €, application sur devis. Devis détaillé et gratuit, le montant annoncé est celui que vous payez."
+        description="Site vitrine à partir de 400 € en ligne sous 72 h, boutique en ligne dès 800 €, application sur devis. Hébergement et nom de domaine offerts la première année, sans abonnement obligatoire."
         path="/tarifs"
         jsonLd={jsonLd}
       />
@@ -111,7 +111,7 @@ const Tarifs = ({ onContactClick }) => {
       {/* Même conteneur que sur l'accueil : sans lui, la section n'avait
           aucune gouttière et le texte touchait les bords sur mobile. */}
       <div className="max-w-[1280px] mx-auto gutter">
-        <PricingSection onContactClick={onContactClick} />
+        <OffersSection onContactClick={onContactClick} compact />
       </div>
 
       <div className="max-w-[1280px] mx-auto gutter pb-16 md:pb-24 flex flex-col gap-14 md:gap-20">

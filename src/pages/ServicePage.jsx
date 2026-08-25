@@ -233,9 +233,16 @@ const ServicePage = ({ slug, onContactClick }) => {
         {offer && (
           <section className="bg-white rounded-[14px] shadow p-7 md:p-10 flex flex-col lg:flex-row lg:items-center gap-8">
             <div className="flex-1">
-              <h2 className="font-black italic font-[Epilogue,Helvetica] text-black text-[24px] md:text-[30px] leading-tight">
-                Formule {offer.name}
-              </h2>
+              <div className="flex flex-wrap items-center gap-3">
+                <h2 className="font-black italic font-[Epilogue,Helvetica] text-black text-[24px] md:text-[30px] leading-tight">
+                  Formule {offer.name}
+                </h2>
+                {offer.delivery && (
+                  <span className="rounded-full bg-[#009379]/10 px-2.5 py-1 text-[12px] md:text-[12.5px] font-bold uppercase tracking-wide text-[#00775f]">
+                    {offer.delivery}
+                  </span>
+                )}
+              </div>
               <p className="mt-2 text-[16px] leading-[25px] text-black/75">
                 {offer.tagline}
               </p>

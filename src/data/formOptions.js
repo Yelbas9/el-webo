@@ -1,6 +1,6 @@
 // Options du formulaire de devis.
 // Ces fourchettes servent à qualifier les demandes : elles ne t'engagent
-// sur aucun prix. Ajuste-les à ton marché.
+// sur aucun prix. Ajustez-les à votre marché.
 export const projectTypes = [
   "Site vitrine",
   "Boutique en ligne",

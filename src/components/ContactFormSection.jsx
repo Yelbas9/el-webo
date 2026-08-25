@@ -90,11 +90,11 @@ const ContactFormSection = () => {
             Travaillons ensemble !
           </h2>
           <p className="font-[Epilogue,Helvetica] text-[1rem] md:text-[17px] leading-[1.6] text-white text-center md:text-left">
-            Laisse-moi tes coordonnées et je te recontacte au plus vite pour en
-            discuter !
+            Laissez-moi vos coordonnées et je vous recontacte au plus vite pour
+            en discuter !
             <br />
-            Tu peux aussi me retrouver sur les réseaux ou m'écrire directement
-            par mail à{" "}
+            Vous pouvez aussi me retrouver sur les réseaux ou m'écrire
+            directement par mail à{" "}
             <a
               href="mailto:elwebo.dev@gmail.com"
               className="font-semibold text-[var(--yellow)] underline underline-offset-4 hover:text-white transition-colors"
@@ -145,7 +145,7 @@ const ContactFormSection = () => {
                 Message bien reçu !
               </span>
               <span className="text-white">
-                Je te recontacte très vite. À tout de suite.
+                Je vous recontacte très vite. À tout de suite.
               </span>
             </div>
           ) : (
@@ -228,7 +228,7 @@ const ContactFormSection = () => {
                 />
               </div>
               <p className="w-full text-white/60 text-[13px] leading-relaxed">
-                Tes coordonnées servent uniquement à te recontacter. Aucune
+                Vos coordonnées servent uniquement à vous recontacter. Aucune
                 revente, aucune newsletter.
               </p>
             </form>

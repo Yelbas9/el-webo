@@ -127,6 +127,18 @@ body {
   }
 }
 
+/* Pistes de carrousel : la barre de défilement est masquée, les pastilles
+   servent déjà de repère de position. Utilitaire absent de Tailwind 4. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 /* Léger soulèvement au survol, partagé par les cartes et les boutons */
 .lift {
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),

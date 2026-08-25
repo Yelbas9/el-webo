@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
-import { projects } from "../data/projects";
 import { services } from "../data/services";
 import Reveal from "../components/Reveal";
 import ServiceIcon from "../components/ServiceIcon";
@@ -245,7 +244,8 @@ const APropos = ({ onContactClick }) => {
         {/* CTA */}
         <section className="bg-[#1c1c1c] on-dark rounded-[14px] p-7 md:p-10 text-center">
           <h2 className="font-black italic font-[Epilogue,Helvetica] text-white text-[1.6rem] md:text-[2rem] leading-tight">
-            {projects.length} projets en ligne, et le vôtre&#8239;?
+            Des sites en ligne, des clients qui recommandent — et le
+            vôtre&#8239;?
           </h2>
           <p className="mt-3 mx-auto max-w-[560px] text-[16px] leading-[26px] text-white/85">
             Un premier échange gratuit, sans engagement, pour voir si on est
@@ -257,7 +257,7 @@ const APropos = ({ onContactClick }) => {
               <Link
                 key={s.slug}
                 to={`/${s.slug}`}
-                className="lift group/other inline-flex items-center gap-2.5 bg-white/10 rounded-[14px] px-4 py-3 font-bold text-white text-[15px] hover:bg-white/20"
+                className="lift group/other inline-flex items-center gap-2.5 bg-white rounded-[14px] px-4 py-3 font-bold text-[#1c1c1c] text-[15px] hover:bg-[var(--yellow)]"
               >
                 <img
                   src={s.heroImage}

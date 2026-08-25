@@ -152,7 +152,7 @@ const ContactModal = ({ open, onClose, prefill = "" }) => {
               Message bien reçu !
             </h2>
             <p className="text-black">
-              Je reviens vers toi très vite avec une première réponse.
+              Je reviens vers vous très vite avec une première réponse.
             </p>
             <button
               type="button"
@@ -168,7 +168,7 @@ const ContactModal = ({ open, onClose, prefill = "" }) => {
               id="contact-modal-title"
               className="font-black italic text-[24px] sm:text-[28px] mb-1 text-black font-[Epilogue,Helvetica] pr-8"
             >
-              Parlons de ton projet
+              Parlons de votre projet
             </h2>
             <p className="text-[15px] text-black/70 mb-5">
               Quelques informations pour préparer notre échange. Réponse rapide,

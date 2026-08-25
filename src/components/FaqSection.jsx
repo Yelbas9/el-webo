@@ -45,8 +45,8 @@ const FaqSection = () => {
         Questions fréquentes
       </h2>
       <p className="mt-4 mb-10 md:mb-14 max-w-[680px] text-center text-base md:text-[1.2rem] leading-[27px] text-black">
-        Tout ce qu'on me demande avant de se lancer. Si ta question n'y est pas,
-        écris-moi : je réponds vite.
+        Tout ce qu'on me demande avant de se lancer. Si votre question n'y est
+        pas, écrivez-moi : je réponds vite.
       </p>
 
       <div className="w-full max-w-[900px] flex flex-col gap-3 md:gap-4">

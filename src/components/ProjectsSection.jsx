@@ -129,8 +129,8 @@ const ProjectsSection = ({ onContactClick }) => {
       </SectionTitle>
 
       <p className="mb-10 md:mb-14 max-w-[720px] text-center text-base md:text-[1.2rem] leading-[27px] text-black">
-        Des projets réellement en ligne, développés sur mesure — pas de
-        template.
+        Quelques-unes de mes réalisations récentes. Des projets réellement
+        en ligne, développés sur mesure — jamais à partir d'un template.
       </p>
 
       <MobileCarousel
