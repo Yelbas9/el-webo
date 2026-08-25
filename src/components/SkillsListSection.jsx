@@ -4,6 +4,7 @@ import iconTelElWebo from "/tel.webp";
 import hommepic from "/hommepic.webp"; // <-- Ton image picto
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
+import MobileCarousel from "./MobileCarousel";
 
 const servicesData = [
   {
@@ -47,19 +48,13 @@ const SkillsListSection = ({ onContactClick }) => {
       </header>
 
       {/* Cartes services */}
-      <div
-        className="
-        grid grid-cols-1 
-        sm:grid-cols-2 
-        md:grid-cols-3 
-        gap-5 
-        md:gap-8 
-        w-full 
-        max-w-[1280px]
-      "
+      <MobileCarousel
+        dark
+        ariaLabel="Mes services"
+        desktopClass="lg:grid lg:grid-cols-3 lg:gap-8"
       >
         {servicesData.map((service, i) => (
-          <Reveal key={service.id} delay={i * 110} className="h-full">
+          <Reveal key={service.id} delay={i * 110} className="h-full w-full">
             <article
               className="
                 lift group flex flex-col items-center bg-white h-full
@@ -129,7 +124,7 @@ const SkillsListSection = ({ onContactClick }) => {
             </article>
           </Reveal>
         ))}
-      </div>
+      </MobileCarousel>
 
       {/* CTA bouton */}
       <button

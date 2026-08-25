@@ -1,6 +1,7 @@
 import bombe from "/img/bombe.webp";
 import { projects } from "../data/projects";
 import Reveal from "./Reveal";
+import MobileCarousel from "./MobileCarousel";
 import ProjectFrame from "./ProjectFrame";
 import SectionTitle from "./SectionTitle";
 
@@ -133,13 +134,16 @@ const ProjectsSection = ({ onContactClick }) => {
         directement.
       </p>
 
-      <div className="grid w-full max-w-[1280px] grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+      <MobileCarousel
+        ariaLabel="Mes réalisations"
+        desktopClass="lg:grid lg:grid-cols-2 lg:gap-8"
+      >
         {projects.map((project, i) => (
-          <Reveal key={project.id} delay={(i % 2) * 120} className="h-full">
+          <Reveal key={project.id} delay={(i % 2) * 120} className="h-full w-full">
             <ProjectCard project={project} />
           </Reveal>
         ))}
-      </div>
+      </MobileCarousel>
 
       {/* CTA bouton */}
       <div className="mt-12 md:mt-16 flex justify-center w-full">

@@ -108,7 +108,11 @@ const Tarifs = ({ onContactClick }) => {
         </div>
       </section>
 
-      <PricingSection onContactClick={onContactClick} />
+      {/* Même conteneur que sur l'accueil : sans lui, la section n'avait
+          aucune gouttière et le texte touchait les bords sur mobile. */}
+      <div className="max-w-[1280px] mx-auto gutter">
+        <PricingSection onContactClick={onContactClick} />
+      </div>
 
       <div className="max-w-[1280px] mx-auto gutter pb-16 md:pb-24 flex flex-col gap-14 md:gap-20">
         {/* Ce qui fait varier le prix */}

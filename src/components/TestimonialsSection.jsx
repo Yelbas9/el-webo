@@ -1,8 +1,8 @@
-import { useEffect, useRef } from "react";
 import smiley from "/smiley.webp";
 import Reveal from "./Reveal";
-import { GOOGLE_REVIEWS_URL } from "../config";
 import SectionTitle from "./SectionTitle";
+import MobileCarousel from "./MobileCarousel";
+import { GOOGLE_REVIEWS_URL } from "../config";
 
 // Icône SVG 5 étoiles jaunes
 const Stars = () => (
@@ -14,7 +14,7 @@ const Stars = () => (
         height="20"
         fill="#FFD700"
         viewBox="0 0 24 24"
-        className="min-w-[20px] min-h-[20px] md:w-[24px] md:h-[24px]"
+        className="w-[18px] h-[18px] md:w-[22px] md:h-[22px]"
       >
         <path d="M12 17.25L6.18 20.25l1.13-6.62L2 8.99l6.64-.97L12 2.5l3.36 5.52L22 8.99l-5.31 4.64 1.13 6.62z" />
       </svg>
@@ -55,34 +55,6 @@ const initials = (name) =>
     .join("");
 
 const TestimonialsSection = () => {
-  const scrollRef = useRef(null);
-
-  // Sur mobile, la liste défile horizontalement : on centre la 2e carte
-  // au chargement pour montrer qu'il y en a d'autres à côté.
-  useEffect(() => {
-    const centerSecondCard = () => {
-      if (window.innerWidth >= 1024 || !scrollRef.current) return;
-      const container = scrollRef.current;
-      const card = container.children[1];
-      if (!card) return;
-      const cardRect = card.getBoundingClientRect();
-      const containerRect = container.getBoundingClientRect();
-      container.scrollTo({
-        left:
-          card.offsetLeft -
-          container.offsetLeft -
-          (containerRect.width / 2 - cardRect.width / 2),
-        behavior: "auto",
-      });
-    };
-    const timer = setTimeout(centerSecondCard, 40);
-    window.addEventListener("resize", centerSecondCard);
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", centerSecondCard);
-    };
-  }, []);
-
   return (
     <section
       id="temoignages"
@@ -97,39 +69,29 @@ const TestimonialsSection = () => {
         Ce que disent mes clients
       </SectionTitle>
 
-      {/* Testimonials grid */}
-      <div
-        ref={scrollRef}
-        className="
-          flex lg:grid lg:grid-cols-3
-          gap-4 sm:gap-6 lg:gap-8
-          w-full lg:max-w-[1280px] mx-auto
-          overflow-x-auto lg:overflow-x-visible scroll-smooth
-          snap-x lg:snap-none no-scrollbar
-        "
-        style={{ WebkitOverflowScrolling: "touch" }}
+      <MobileCarousel
+        ariaLabel="Avis de mes clients"
+        desktopClass="lg:grid lg:grid-cols-3 lg:gap-8"
       >
         {testimonialsData.map((testimonial, i) => (
-          <Reveal
-            key={testimonial.id}
-            delay={i * 110}
-            className="h-full flex-shrink-0 lg:flex-shrink w-[85vw] max-w-[350px] sm:w-[350px] lg:w-auto lg:max-w-full snap-center lg:snap-none"
-          >
+          <Reveal key={testimonial.id} delay={i * 110} className="h-full w-full">
+            {/*
+              h-full en cascade depuis la piste du carrousel : sans ça, une
+              citation plus longue rendait sa carte plus haute que les autres,
+              et le contenu débordait verticalement.
+            */}
             <article
               className="
                 flex h-full flex-col justify-between bg-white
-                p-5 sm:p-7 md:p-6 lg:p-8
-                gap-6 sm:gap-7 lg:gap-8 shadow text-black w-full
-                min-h-[260px] sm:min-h-[300px] lg:min-h-[340px]
+                p-5 sm:p-7 lg:p-8 gap-5 lg:gap-8
+                shadow text-black w-full
                 transition-shadow duration-300 hover:shadow-xl
               "
             >
-              {/* Témoignage */}
-              <blockquote className="text-base sm:text-lg lg:text-lg leading-relaxed mb-1 opacity-95 font-[Epilogue,Helvetica]">
+              <blockquote className="text-[15px] sm:text-base lg:text-lg leading-relaxed opacity-95 font-[Epilogue,Helvetica]">
                 &ldquo;{testimonial.text}&rdquo;
               </blockquote>
 
-              {/* Identité alignée en bas */}
               <div className="flex flex-row items-center gap-3 sm:gap-4 mt-auto">
                 <span
                   aria-hidden="true"
@@ -141,10 +103,10 @@ const TestimonialsSection = () => {
                 <div className="flex flex-col">
                   <Stars />
                   <span className="sr-only">Note : 5 étoiles sur 5.</span>
-                  <cite className="not-italic font-bold block text-[13px] md:text-lg">
+                  <cite className="not-italic font-bold block text-[15px] md:text-lg">
                     {testimonial.name}
                   </cite>
-                  <div className="text-xs sm:text-sm md:text-sm text-black opacity-70">
+                  <div className="text-[13px] sm:text-sm text-black opacity-70">
                     {testimonial.company}
                   </div>
                 </div>
@@ -152,7 +114,7 @@ const TestimonialsSection = () => {
             </article>
           </Reveal>
         ))}
-      </div>
+      </MobileCarousel>
 
       {GOOGLE_REVIEWS_URL && (
         <div className="mt-8 flex justify-center">
@@ -167,12 +129,6 @@ const TestimonialsSection = () => {
           </a>
         </div>
       )}
-
-      {/* Masque la barre de défilement du carrousel mobile */}
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
     </section>
   );
 };

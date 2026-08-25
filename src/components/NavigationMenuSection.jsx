@@ -32,6 +32,24 @@ const linkClass = ({ isActive }) =>
       : "text-black"
   }`;
 
+const Logo = ({ className = "" }) => (
+  <Link
+    to="/"
+    className={`flex items-center select-none ${className}`}
+    aria-label="El Webo, retour à l'accueil"
+  >
+    <img
+      src={logoElWebo}
+      alt="El Webo"
+      width="76"
+      height="76"
+      className="h-[58px] sm:h-[65px] lg:h-[76px] w-auto object-contain"
+      style={{ userSelect: "none", pointerEvents: "none" }}
+      draggable={false}
+    />
+  </Link>
+);
+
 const NavigationMenuSection = ({ onContactClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -109,95 +127,94 @@ const NavigationMenuSection = ({ onContactClick }) => {
   return (
     <nav
       aria-label="Navigation principale"
-      className="w-full h-[90px] flex items-center justify-between bg-white relative z-40"
+      className="w-full h-[90px] flex items-center bg-white relative z-40"
     >
-      {/* Logo */}
-      <Link
-        to="/"
-        className="flex items-center h-full select-none"
-        aria-label="El Webo, retour à l'accueil"
-      >
-        <img
-          src={logoElWebo}
-          alt="El Webo"
-          width="76"
-          height="76"
-          className="h-[65px] md:h-[76px] w-auto object-contain ml-2"
-          style={{ userSelect: "none", pointerEvents: "none" }}
-          draggable={false}
-        />
-      </Link>
-
-      {/* Menu bureau */}
-      <ul className="hidden lg:flex items-center gap-7 xl:gap-9 mr-4">
-        <li className="relative" ref={servicesRef}>
-          <button
-            type="button"
-            onClick={() => setServicesOpen((p) => !p)}
-            aria-expanded={servicesOpen}
-            aria-haspopup="true"
-            className={`flex items-center gap-1.5 py-3 font-semibold font-[Epilogue,Helvetica] text-[17px] xl:text-[19px] cursor-pointer transition-colors hover:text-[#8a7200] ${
-              onServicePage
-                ? "text-black underline decoration-[var(--yellow)] decoration-4 underline-offset-8"
-                : "text-black"
+      {/* ---------- MOBILE : burger · logo centré · contact ---------- */}
+      <div className="grid lg:hidden w-full grid-cols-[1fr_auto_1fr] items-center">
+        <button
+          ref={burgerRef}
+          className="justify-self-start flex flex-col justify-center items-center -ml-2 p-3 z-50 cursor-pointer"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={menuOpen}
+          aria-controls="menu-mobile"
+          type="button"
+        >
+          <div
+            className={`w-7 h-[3px] bg-black rounded transition-all duration-300 ${
+              menuOpen ? "rotate-45 translate-y-[9px]" : ""
             }`}
-          >
-            Services
-            <Chevron open={servicesOpen} />
-          </button>
+          />
+          <div
+            className={`w-7 h-[3px] bg-black rounded my-1.5 transition-all duration-300 ${
+              menuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <div
+            className={`w-7 h-[3px] bg-black rounded transition-all duration-300 ${
+              menuOpen ? "-rotate-45 -translate-y-[9px]" : ""
+            }`}
+          />
+        </button>
 
-          {servicesOpen && (
-            <ul className="absolute left-0 top-full z-50 mt-1 w-[268px] rounded-[14px] border border-black/5 bg-white p-2 shadow-xl">
-              <ServiceLinks />
-            </ul>
-          )}
-        </li>
+        <Logo className="justify-self-center" />
 
-        {mainLinks.map((item) => (
-          <li key={item.to}>
-            <NavLink to={item.to} className={linkClass}>
-              {item.text}
-            </NavLink>
+        <button
+          type="button"
+          onClick={() => onContactClick()}
+          className="justify-self-end lift bg-[var(--yellow)] rounded-[20px] px-4 py-2.5 font-bold text-[#1c1c1c] text-[14px] sm:text-[15px] hover:bg-[#e6be00] cursor-pointer whitespace-nowrap"
+        >
+          Me contacter
+        </button>
+      </div>
+
+      {/* ---------- BUREAU ---------- */}
+      <div className="hidden lg:flex w-full items-center justify-between">
+        <Logo className="h-full ml-2" />
+
+        <ul className="flex items-center gap-7 xl:gap-9 mr-4">
+          <li className="relative" ref={servicesRef}>
+            <button
+              type="button"
+              onClick={() => setServicesOpen((p) => !p)}
+              aria-expanded={servicesOpen}
+              aria-haspopup="true"
+              className={`flex items-center gap-1.5 py-3 font-semibold font-[Epilogue,Helvetica] text-[17px] xl:text-[19px] cursor-pointer transition-colors hover:text-[#8a7200] ${
+                onServicePage
+                  ? "text-black underline decoration-[var(--yellow)] decoration-4 underline-offset-8"
+                  : "text-black"
+              }`}
+            >
+              Services
+              <Chevron open={servicesOpen} />
+            </button>
+
+            {servicesOpen && (
+              <ul className="absolute left-0 top-full z-50 mt-1 w-[268px] rounded-[14px] border border-black/5 bg-white p-2 shadow-xl">
+                <ServiceLinks />
+              </ul>
+            )}
           </li>
-        ))}
 
-        <li>
-          <button
-            type="button"
-            className="lift bg-[var(--yellow)] rounded-[20px] px-6 py-3 font-bold text-[#1c1c1c] text-[17px] xl:text-[19px] hover:bg-[#e6be00] cursor-pointer whitespace-nowrap"
-            onClick={() => onContactClick()}
-          >
-            Me contacter
-          </button>
-        </li>
-      </ul>
+          {mainLinks.map((item) => (
+            <li key={item.to}>
+              <NavLink to={item.to} className={linkClass}>
+                {item.text}
+              </NavLink>
+            </li>
+          ))}
 
-      {/* Bouton menu mobile */}
-      <button
-        ref={burgerRef}
-        className="lg:hidden flex flex-col justify-center items-center mr-2 p-3 z-50 cursor-pointer"
-        onClick={() => setMenuOpen((prev) => !prev)}
-        aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-        aria-expanded={menuOpen}
-        aria-controls="menu-mobile"
-        type="button"
-      >
-        <div
-          className={`w-8 h-1 bg-black rounded transition-all duration-300 ${
-            menuOpen ? "rotate-45 translate-y-2" : ""
-          }`}
-        />
-        <div
-          className={`w-8 h-1 bg-black rounded my-1 transition-all duration-300 ${
-            menuOpen ? "opacity-0" : ""
-          }`}
-        />
-        <div
-          className={`w-8 h-1 bg-black rounded transition-all duration-300 ${
-            menuOpen ? "-rotate-45 -translate-y-2" : ""
-          }`}
-        />
-      </button>
+          <li>
+            <button
+              type="button"
+              className="lift bg-[var(--yellow)] rounded-[20px] px-6 py-3 font-bold text-[#1c1c1c] text-[17px] xl:text-[19px] hover:bg-[#e6be00] cursor-pointer whitespace-nowrap"
+              onClick={() => onContactClick()}
+            >
+              Me contacter
+            </button>
+          </li>
+        </ul>
+      </div>
 
       {/* Voile sombre */}
       <div
@@ -215,29 +232,29 @@ const NavigationMenuSection = ({ onContactClick }) => {
         aria-hidden="true"
       />
 
-      {/* Panneau mobile */}
+      {/* Panneau mobile — s'ouvre depuis la gauche, comme le bouton burger */}
       <div
         id="menu-mobile"
         className={`
-          fixed top-0 right-0 w-[82vw] max-w-[350px] h-full
-          bg-white rounded-l-xl shadow-2xl z-50
+          fixed top-0 left-0 w-[82vw] max-w-[350px] h-full
+          bg-white rounded-r-xl shadow-2xl z-50
           flex flex-col gap-2 pt-5 pb-10 px-5
-          border-l border-[#ececec] overflow-y-auto
-          ${menuOpen ? "translate-x-0" : "translate-x-full"}
+          border-r border-[#ececec] overflow-y-auto
+          ${menuOpen ? "translate-x-0" : "-translate-x-full"}
           transition-transform duration-300 lg:hidden
         `}
         aria-hidden={!menuOpen}
       >
         <button
-          className="self-end p-3 -mr-1 cursor-pointer"
+          className="self-start p-3 -ml-1 cursor-pointer"
           onClick={() => setMenuOpen(false)}
           aria-label="Fermer le menu"
           type="button"
           tabIndex={menuOpen ? 0 : -1}
         >
-          <div className="w-8 h-1 bg-black rounded rotate-45 translate-y-2" />
-          <div className="w-8 h-1 bg-black rounded my-1 opacity-0" />
-          <div className="w-8 h-1 bg-black rounded -rotate-45 -translate-y-2" />
+          <div className="w-7 h-[3px] bg-black rounded rotate-45 translate-y-[9px]" />
+          <div className="w-7 h-[3px] bg-black rounded my-1.5 opacity-0" />
+          <div className="w-7 h-[3px] bg-black rounded -rotate-45 -translate-y-[9px]" />
         </button>
 
         <p className="px-3 pt-2 pb-1 text-[13px] uppercase tracking-wide text-black/45">

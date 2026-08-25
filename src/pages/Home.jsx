@@ -33,14 +33,14 @@ const Home = ({ onContactClick }) => {
       </section>
 
       {/* BANDEAU DE RÉASSURANCE
-          z-10 : le héros déborde volontairement vers le bas, le bandeau doit
-          rester au-dessus pour que son texte reste lisible sur mobile. */}
+          Mobile : deux colonnes alignées à gauche — en flex centré, les
+          quatre promesses se décalaient les unes par rapport aux autres. */}
       <div className="relative z-10 w-full bg-[var(--yellow)]">
-        <ul className="max-w-[1280px] mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-2 px-4 py-3 md:py-4">
+        <ul className="max-w-[1280px] mx-auto gutter grid grid-cols-2 gap-x-4 gap-y-2.5 py-4 lg:flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-x-8 lg:gap-y-2">
           {trustPoints.map((point) => (
             <li
               key={point}
-              className="flex items-center gap-2 text-[13px] md:text-[15px] font-semibold text-[#1c1c1c]"
+              className="flex items-start lg:items-center gap-2 text-[13px] md:text-[15px] font-semibold leading-snug text-[#1c1c1c]"
             >
               <svg
                 width="16"
@@ -52,7 +52,7 @@ const Home = ({ onContactClick }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 aria-hidden="true"
-                className="flex-shrink-0"
+                className="flex-shrink-0 mt-[3px] lg:mt-0"
               >
                 <path d="m5 13 4 4L19 7" />
               </svg>

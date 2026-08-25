@@ -1,5 +1,6 @@
 import { offers } from "../data/offers";
 import Reveal from "./Reveal";
+import MobileCarousel from "./MobileCarousel";
 import SectionTitle from "./SectionTitle";
 
 const Check = () => (
@@ -109,13 +110,16 @@ const PricingSection = ({ onContactClick }) => {
         paies.
       </p>
 
-      <div className="grid w-full max-w-[1280px] grid-cols-1 md:grid-cols-3 gap-5 md:gap-8">
+      <MobileCarousel
+        ariaLabel="Mes formules"
+        desktopClass="lg:grid lg:grid-cols-3 lg:gap-8"
+      >
         {offers.map((offer, i) => (
-          <Reveal key={offer.id} delay={i * 110} className="h-full">
+          <Reveal key={offer.id} delay={i * 110} className="h-full w-full">
             <OfferCard offer={offer} onContactClick={onContactClick} />
           </Reveal>
         ))}
-      </div>
+      </MobileCarousel>
 
       <p className="mt-8 max-w-[720px] text-center text-[15px] leading-[24px] text-black/65">
         Besoin d'autre chose — refonte, maintenance, coup de main ponctuel ?
