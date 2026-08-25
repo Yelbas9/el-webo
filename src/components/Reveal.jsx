@@ -23,7 +23,9 @@ const Reveal = ({ children, delay = 0, className = "" }) => {
           observer.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+      // threshold 0 : dans un carrousel, les cartes voisines ne dépassent
+      // que de quelques pixels — avec un seuil elles restaient invisibles.
+      { threshold: 0, rootMargin: "0px 0px -60px 0px" }
     );
 
     observer.observe(el);

@@ -4,26 +4,50 @@ import { Children, useCallback, useEffect, useRef, useState } from "react";
  * Carrousel horizontal sur mobile, grille classique à partir de `lg`.
  *
  * Sur mobile la liste déborde volontairement des gouttières (-mx / px) pour
- * que la carte suivante dépasse à droite : c'est ce débord qui fait
+ * que la carte suivante dépasse sur le côté : c'est ce débord qui fait
  * comprendre au visiteur qu'il peut faire défiler.
  *
- * `desktopClass` : les classes de grille appliquées à partir de lg.
+ * `desktopClass`  : les classes de grille appliquées à partir de lg.
+ * `startCentered` : ouvre sur la carte du milieu, pour qu'on voie tout de
+ *                   suite qu'il y a du contenu à gauche ET à droite.
  */
-const MobileCarousel = ({ children, desktopClass = "", ariaLabel, dark = false }) => {
+const MobileCarousel = ({
+  children,
+  desktopClass = "",
+  ariaLabel,
+  dark = false,
+  startCentered = false,
+}) => {
   const items = Children.toArray(children);
+  const middle = Math.floor((items.length - 1) / 2);
   const trackRef = useRef(null);
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(startCentered ? middle : 0);
+
+  // Mesures via getBoundingClientRect plutôt que offsetLeft : ce dernier est
+  // relatif au premier ancêtre positionné, qui n'est pas toujours la piste.
+  const scrollToIndex = useCallback((i, behavior) => {
+    const track = trackRef.current;
+    const child = track?.children[i];
+    if (!track || !child) return;
+    const delta =
+      child.getBoundingClientRect().left - track.getBoundingClientRect().left;
+    track.scrollTo({
+      left:
+        track.scrollLeft + delta - (track.clientWidth - child.offsetWidth) / 2,
+      behavior,
+    });
+  }, []);
 
   const onScroll = useCallback(() => {
     const track = trackRef.current;
     if (!track || track.children.length === 0) return;
     // La carte active est celle dont le centre est le plus proche du centre visible
-    const center = track.scrollLeft + track.clientWidth / 2;
+    const center = track.getBoundingClientRect().left + track.clientWidth / 2;
     let best = 0;
     let bestDist = Infinity;
     [...track.children].forEach((child, i) => {
-      const childCenter = child.offsetLeft + child.offsetWidth / 2;
-      const dist = Math.abs(childCenter - center);
+      const rect = child.getBoundingClientRect();
+      const dist = Math.abs(rect.left + rect.width / 2 - center);
       if (dist < bestDist) {
         bestDist = dist;
         best = i;
@@ -39,15 +63,14 @@ const MobileCarousel = ({ children, desktopClass = "", ariaLabel, dark = false }
     return () => track.removeEventListener("scroll", onScroll);
   }, [onScroll]);
 
-  const goTo = (i) => {
-    const track = trackRef.current;
-    const child = track?.children[i];
-    if (!track || !child) return;
-    track.scrollTo({
-      left: child.offsetLeft - (track.clientWidth - child.offsetWidth) / 2,
-      behavior: "smooth",
-    });
-  };
+  // Position d'ouverture au milieu : uniquement en mobile, sans animation,
+  // et après la première mise en page pour que les largeurs soient connues.
+  useEffect(() => {
+    if (!startCentered || items.length < 2) return;
+    if (window.matchMedia("(min-width: 1024px)").matches) return;
+    const id = requestAnimationFrame(() => scrollToIndex(middle, "auto"));
+    return () => cancelAnimationFrame(id);
+  }, [startCentered, items.length, middle, scrollToIndex]);
 
   return (
     <div className="w-full">
@@ -55,11 +78,13 @@ const MobileCarousel = ({ children, desktopClass = "", ariaLabel, dark = false }
         ref={trackRef}
         aria-label={ariaLabel}
         className={`
-          no-scrollbar flex snap-x snap-mandatory overflow-x-auto scroll-smooth
-          gap-4 pb-1
+          no-scrollbar flex snap-x snap-mandatory
+          overflow-x-auto overflow-y-hidden overscroll-x-contain
+          gap-4 py-2
           -mx-5 px-5 scroll-px-5
           sm:-mx-8 sm:px-8 sm:scroll-px-8
-          lg:mx-0 lg:px-0 lg:overflow-visible lg:snap-none lg:gap-0
+          lg:mx-0 lg:px-0 lg:py-0 lg:gap-0 lg:snap-none
+          lg:overflow-x-visible lg:overflow-y-visible
           ${desktopClass}
         `}
       >
@@ -67,7 +92,7 @@ const MobileCarousel = ({ children, desktopClass = "", ariaLabel, dark = false }
           <li
             key={i}
             className="
-              snap-center shrink-0 flex
+              snap-center snap-always shrink-0 flex
               w-[80vw] max-w-[340px]
               lg:w-auto lg:max-w-none lg:shrink lg:snap-align-none
             "
@@ -84,7 +109,7 @@ const MobileCarousel = ({ children, desktopClass = "", ariaLabel, dark = false }
             <button
               key={i}
               type="button"
-              onClick={() => goTo(i)}
+              onClick={() => scrollToIndex(i, "smooth")}
               aria-label={`Aller à l'élément ${i + 1} sur ${items.length}`}
               aria-current={active === i}
               className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${

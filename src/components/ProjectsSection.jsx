@@ -38,24 +38,24 @@ const ProjectCard = ({ project }) => {
       </a>
 
       {/* Contenu */}
-      <div className="flex flex-1 flex-col gap-4 p-6 md:p-8">
-        <div className="flex flex-wrap items-center gap-3">
-          <span className="bg-[var(--yellow)] px-3 py-1 text-[12.5px] md:text-[13px] font-bold uppercase tracking-wide text-[#1c1c1c]">
+      <div className="flex flex-1 flex-col gap-3.5 md:gap-4 p-5 md:p-8">
+        <div className="flex flex-wrap items-center gap-2.5 md:gap-3">
+          <span className="bg-[var(--yellow)] px-2.5 py-1 text-[11.5px] md:text-[13px] font-bold uppercase tracking-wide text-[#1c1c1c]">
             {project.category}
           </span>
           <span className="text-[13px] text-white/50">{project.year}</span>
         </div>
 
         <div>
-          <h3 className="font-black italic font-[Epilogue,Helvetica] text-white text-[22px] md:text-[27px] leading-tight">
+          <h3 className="font-black italic font-[Epilogue,Helvetica] text-white text-[21px] md:text-[27px] leading-tight">
             {project.name}
           </h3>
-          <p className="mt-1 text-[15px] md:text-[17px] text-[var(--yellow)]">
+          <p className="mt-1 text-[14px] md:text-[17px] leading-snug text-[var(--yellow)]">
             {project.tagline}
           </p>
         </div>
 
-        <p className="text-[15px] md:text-[16px] leading-[24px] md:leading-[26px] text-white/85">
+        <p className="text-[14.5px] md:text-[16px] leading-[22px] md:leading-[26px] text-white/85">
           {project.description}
         </p>
 
@@ -74,19 +74,19 @@ const ProjectCard = ({ project }) => {
           </ul>
         )}
 
-        <ul className="flex flex-wrap gap-2">
+        <ul className="flex flex-wrap gap-1.5 md:gap-2">
           {project.highlights.map((item) => (
             <li
               key={item}
-              className="rounded-full border border-white/20 px-3 py-1.5 text-[13px] md:text-[13.5px] text-white/75"
+              className="rounded-full border border-white/20 px-2.5 py-1 text-[11.5px] leading-tight md:px-3 md:py-1.5 md:text-[13.5px] text-white/75"
             >
               {item}
             </li>
           ))}
         </ul>
 
-        <div className="mt-auto flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5">
-          <span className="text-[12.5px] md:text-[13px] uppercase tracking-wide text-white/45">
+        <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-white/10 pt-4 md:gap-4 md:pt-5">
+          <span className="text-[11.5px] md:text-[13px] uppercase tracking-wide text-white/45">
             {project.stack.join(" · ")}
           </span>
           <a
@@ -94,8 +94,8 @@ const ProjectCard = ({ project }) => {
             target="_blank"
             rel="noopener noreferrer"
             className="
-              inline-flex items-center gap-2 rounded-[20px] bg-white px-5 py-2.5
-              text-[15px] md:text-[16px] font-bold text-[#1c1c1c]
+              inline-flex items-center gap-2 rounded-[20px] bg-white px-4 py-2 md:px-5 md:py-2.5
+              text-[14px] md:text-[16px] font-bold text-[#1c1c1c]
               transition-colors duration-200 hover:bg-[var(--yellow)]
               [&>svg]:transition-transform [&:hover>svg]:translate-x-0.5
               [&:hover>svg]:-translate-y-0.5
@@ -130,8 +130,7 @@ const ProjectsSection = ({ onContactClick }) => {
 
       <p className="mb-10 md:mb-14 max-w-[720px] text-center text-base md:text-[1.2rem] leading-[27px] text-black">
         Des projets réellement en ligne, développés sur mesure — pas de
-        template. Survole une carte pour parcourir le site, ou ouvre-le
-        directement.
+        template.
       </p>
 
       <MobileCarousel

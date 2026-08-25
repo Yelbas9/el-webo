@@ -22,7 +22,8 @@ const Chevron = ({ open }) => (
 );
 
 const FaqSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  // -1 : tout est fermé au chargement, c'est au visiteur d'ouvrir.
+  const [openIndex, setOpenIndex] = useState(-1);
   const baseId = useId();
 
   const jsonLd = {

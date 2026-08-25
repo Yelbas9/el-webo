@@ -111,6 +111,7 @@ const PricingSection = ({ onContactClick }) => {
       </p>
 
       <MobileCarousel
+        startCentered
         ariaLabel="Mes formules"
         desktopClass="lg:grid lg:grid-cols-3 lg:gap-8"
       >

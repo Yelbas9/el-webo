@@ -50,6 +50,7 @@ const SkillsListSection = ({ onContactClick }) => {
       {/* Cartes services */}
       <MobileCarousel
         dark
+        startCentered
         ariaLabel="Mes services"
         desktopClass="lg:grid lg:grid-cols-3 lg:gap-8"
       >
@@ -152,7 +153,7 @@ const SkillsListSection = ({ onContactClick }) => {
         loading="lazy"
         decoding="async"
         className="
-          absolute left-0 bottom-0 
+          absolute bottom-0 left-[calc(var(--gutter,0px)*-1)]
           w-[80px] sm:w-[100px] md:w-[120px] xl:w-[150px]
           pointer-events-none select-none
         "

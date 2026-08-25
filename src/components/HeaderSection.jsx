@@ -1,8 +1,8 @@
 const HeaderSection = ({ onContactClick }) => {
   return (
-    <header className="relative w-full max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 xl:gap-20 pt-8 pb-8 md:pt-0 md:pb-0 md:min-h-[500px] xl:min-h-[400px]">
+    <header className="relative w-full max-w-[1280px] mx-auto min-h-[400px] md:min-h-[500px] xl:min-h-[400px] flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8 xl:gap-20">
       {/* Texte à gauche */}
-      <div className="flex flex-col gap-5 sm:gap-6 xl:gap-10 w-full md:max-w-[54%] xl:max-w-[600px] md:pt-10">
+      <div className="flex flex-col gap-6 xl:gap-10 w-full md:max-w-[54%] xl:max-w-[600px] pt-10">
         <p
           className="rise font-[Epilogue,Helvetica] text-lg sm:text-xl text-black"
           style={{ animationDelay: "40ms" }}
@@ -37,11 +37,10 @@ const HeaderSection = ({ onContactClick }) => {
           Me contacter
         </button>
 
-        {/* MOBILE : bouton + illustration côte à côte.
-            Aucune marge négative ici : c'est ce qui faisait déborder le
-            contenu sur le bandeau jaune placé juste en dessous. */}
+        {/* MOBILE : bouton + illustration côte à côte, l'image posée sur la
+            bordure basse de la section blanche. */}
         <div
-          className="rise flex md:hidden flex-row items-end justify-between gap-4 w-full mt-1"
+          className="rise flex md:hidden flex-row items-end justify-between gap-3 w-full -mt-8"
           style={{ animationDelay: "190ms" }}
         >
           <button
@@ -59,7 +58,7 @@ const HeaderSection = ({ onContactClick }) => {
             height="542"
             fetchPriority="high"
             decoding="async"
-            className="w-[40%] max-w-[190px] h-auto object-contain"
+            className="w-[42%] max-w-[220px] h-auto object-contain -mb-5"
             draggable={false}
             style={{ userSelect: "none" }}
           />

@@ -104,22 +104,26 @@ body {
 
 /* Gouttières latérales communes à toutes les sections.
    Évite que le contenu colle aux bords sur mobile et tablette. */
+/* --gutter est exposé en variable : les éléments qui doivent toucher le
+   bord de l'écran (le picto de « Mes services ») annulent la gouttière
+   avec un calc() plutôt qu'en dupliquant les points de rupture. */
 .gutter {
-  padding-inline: 1.25rem;
+  --gutter: 1.25rem;
+  padding-inline: var(--gutter);
 }
 @media (min-width: 640px) {
   .gutter {
-    padding-inline: 2rem;
+    --gutter: 2rem;
   }
 }
 @media (min-width: 1024px) {
   .gutter {
-    padding-inline: 2.5rem;
+    --gutter: 2.5rem;
   }
 }
 @media (min-width: 1360px) {
   .gutter {
-    padding-inline: 0;
+    --gutter: 0px;
   }
 }
 

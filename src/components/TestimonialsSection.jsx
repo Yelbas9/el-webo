@@ -70,6 +70,7 @@ const TestimonialsSection = () => {
       </SectionTitle>
 
       <MobileCarousel
+        startCentered
         ariaLabel="Avis de mes clients"
         desktopClass="lg:grid lg:grid-cols-3 lg:gap-8"
       >

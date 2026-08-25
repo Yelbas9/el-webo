@@ -25,6 +25,23 @@ const Chevron = ({ open }) => (
   </svg>
 );
 
+const MailIcon = () => (
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+    <path d="m3 7.5 8 5.3a2 2 0 0 0 2 0l8-5.3" />
+  </svg>
+);
+
 const linkClass = ({ isActive }) =>
   `block py-3 font-semibold font-[Epilogue,Helvetica] text-[17px] xl:text-[19px] transition-colors duration-200 hover:text-[#8a7200] ${
     isActive
@@ -159,12 +176,14 @@ const NavigationMenuSection = ({ onContactClick }) => {
 
         <Logo className="justify-self-center" />
 
+        {/* Pastille enveloppe : même encombrement que le burger, en face. */}
         <button
           type="button"
           onClick={() => onContactClick()}
-          className="justify-self-end lift bg-[var(--yellow)] rounded-[20px] px-4 py-2.5 font-bold text-[#1c1c1c] text-[14px] sm:text-[15px] hover:bg-[#e6be00] cursor-pointer whitespace-nowrap"
+          aria-label="Me contacter"
+          className="justify-self-end mr-1 flex h-11 w-11 items-center justify-center rounded-full bg-[var(--yellow)] text-[#1c1c1c] shadow-sm transition-colors duration-200 hover:bg-[#e6be00] cursor-pointer"
         >
-          Me contacter
+          <MailIcon />
         </button>
       </div>
 

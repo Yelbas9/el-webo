@@ -24,12 +24,12 @@ export const projects = [
     year: "2025",
     tagline: "Trouver un pro et réserver en ligne, à toute heure",
     description:
-      "Une plateforme complète de prise de rendez-vous : annuaire géolocalisé, disponibilités en temps réel, réservation sans création de compte et espace professionnel avec acomptes et facturation automatiques.",
+      "Annuaire géolocalisé, disponibilités en temps réel, réservation sans création de compte et espace pro avec facturation automatique.",
     highlights: [
-      "Recherche par métier et par ville",
-      "Plus de 55 métiers couverts",
-      "Espace pro & agenda",
-      "Thème clair / sombre",
+      "Recherche par ville",
+      "55+ métiers",
+      "Espace pro",
+      "Clair / sombre",
     ],
     results: [],
     stack: ["React", "Vite", "Netlify"],
@@ -44,11 +44,11 @@ export const projects = [
     year: "2025",
     tagline: "Mode féminine élégante et intemporelle",
     description:
-      "Un e-commerce sur mesure à l'univers « old money » : mise en avant des collections, fiches produits soignées, compte client et parcours d'achat fluide du premier clic au paiement.",
+      "Un e-commerce sur mesure à l'univers « old money » : collections mises en avant, fiches produits soignées et parcours d'achat fluide.",
     highlights: [
-      "Catalogue & collections",
-      "Panier et compte client",
-      "Bandeau promo animé",
+      "Catalogue produits",
+      "Compte client",
+      "Promo animée",
       "Suivi analytics",
     ],
     results: [],
@@ -64,11 +64,11 @@ export const projects = [
     year: "2025",
     tagline: "Cartes TCG, boosters & produits scellés",
     description:
-      "Une boutique spécialisée dans les cartes à collectionner, pensée pour un gros catalogue : filtres par univers, type, prix et disponibilité, tri instantané et gestion des ruptures de stock.",
+      "Une boutique de cartes à collectionner pensée pour un gros catalogue : filtres par univers, type et prix, avec tri instantané.",
     highlights: [
-      "Filtres multi-critères",
+      "Filtres avancés",
       "Gestion des stocks",
-      "One Piece, Pokémon, Yu-Gi-Oh…",
+      "Pokémon, One Piece…",
       "Suivi analytics",
     ],
     results: [],
@@ -84,11 +84,11 @@ export const projects = [
     year: "2024",
     tagline: "Fabricant de menuiseries PVC & ALU sur mesure",
     description:
-      "Un site vitrine pour un fabricant près de Bordeaux : présentation des gammes, réalisations en photos, référencement local travaillé et appels à l'action pour transformer les visiteurs en demandes de devis.",
+      "La vitrine d'un fabricant près de Bordeaux : gammes, réalisations en photos et référencement local pour générer des demandes de devis.",
     highlights: [
       "Catalogue de gammes",
-      "Galerie de réalisations",
-      "SEO local (Bordeaux)",
+      "Galerie photos",
+      "SEO local Bordeaux",
       "Avis Google 5 ★",
     ],
     results: [],
