@@ -9,41 +9,44 @@ import satoshiBoldExtrabold2 from "/inter.webp";
 import Reveal from "./Reveal";
 import SectionTitle from "./SectionTitle";
 
+// Le titre porte le bénéfice, pas le nom de l'outil : un client qui ne
+// programme pas doit comprendre ce que ça change pour lui. Le nom de la
+// techno reste, en étiquette, pour qui sait la lire.
 const skillsDataBase = [
   {
     id: 1,
     image: image8,
-    imageAlt: "React Icon",
-    title: "React",
+    tech: "React",
+    title: "Un site qui répond au quart de tour",
     description:
-      "Mon outil de prédilection pour créer des interfaces web interactives, ultra-fluides, et personnalisées sur-mesure.",
+      "Les pages s'affichent sans rechargement. Votre visiteur ne perd jamais patience — et Google en tient compte dans son classement.",
     imageClasses: "w-[40px] h-[36px] md:w-[57px] md:h-[53px]",
   },
   {
     id: 2,
     image: image10,
-    imageAlt: "Tailwind CSS Icon",
-    title: "Tailwind CSS",
+    tech: "Tailwind CSS",
+    title: "Parfait sur téléphone comme sur ordinateur",
     description:
-      "Un workflow de développement rapide : je réalise des sites élégants, adaptatifs et cohérents en un temps record.",
+      "Chaque taille d'écran a droit à sa propre mise en page. Plus de la moitié de vos visiteurs arrivent depuis un mobile : ils ne doivent rien avoir à zoomer.",
     imageClasses: "w-[40px] h-[24px] md:w-[57px] md:h-[35px]",
   },
   {
     id: 3,
     image: image15,
-    imageAlt: "Node JS Icon",
-    title: "Node JS",
+    tech: "Node.js",
+    title: "Des fonctions faites sur mesure",
     description:
-      "Back-end moderne : création d’API, automatisations, serveurs rapides et fiables pour tes projets.",
+      "Formulaire de devis, paiement en ligne, espace client, e-mails automatiques : ce dont vous avez besoin est codé pour vous, pas bricolé avec une extension.",
     imageClasses: "w-[40px] h-[24px] md:w-[57px] md:h-[35px]",
   },
   {
     id: 4,
     image: image16,
-    imageAlt: "Git Icon",
-    title: "Git",
+    tech: "Git",
+    title: "Rien ne se perd, jamais",
     description:
-      "Gestion de versions, collaboration et déploiement continu : Git & GitHub pour un dev sans stress.",
+      "Chaque modification de votre site est archivée. Si une nouveauté ne vous convient pas, on revient à la version précédente en quelques minutes.",
     imageClasses: "w-[40px] h-[40px] md:w-[57px] md:h-[57px]",
   },
 ];
@@ -52,19 +55,19 @@ const moreSkills = [
   {
     id: 5,
     image: mongodbIcon,
-    imageAlt: "MongoDB Icon",
-    title: "MongoDB",
+    tech: "MongoDB",
+    title: "Vos contenus évoluent avec vous",
     description:
-      "Base de données NoSQL : souple, rapide et idéale pour tous les projets web modernes.",
+      "Produits, tarifs, articles : vos données sont organisées dès le départ pour qu'on puisse en ajouter sans tout reconstruire.",
     imageClasses: "w-[36px] h-[36px] md:w-[50px] md:h-[50px]",
   },
   {
     id: 6,
     image: rnIcon,
-    imageAlt: "React Native Icon",
-    title: "React Native",
+    tech: "React Native",
+    title: "Une seule application, iPhone et Android",
     description:
-      "Apps mobiles performantes iOS/Android en un seul codebase grâce à React Native.",
+      "Pas deux développements à financer : un même code alimente les deux boutiques d'applications.",
     imageClasses: "w-[36px] h-[36px] md:w-[50px] md:h-[50px]",
   },
 ];
@@ -72,7 +75,7 @@ const moreSkills = [
 const SkillCard = ({ skill, idx }) => (
   <article
     className={`
-      lift group flex flex-row items-start gap-4 sm:gap-6 md:gap-8 bg-white
+      lift group flex h-full flex-row items-start gap-4 sm:gap-6 md:gap-8 bg-white
       px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10
       min-w-0 max-w-full md:min-w-[270px] md:max-w-[600px]
       rounded-[14px] shadow hover:shadow-xl
@@ -97,7 +100,7 @@ const SkillCard = ({ skill, idx }) => (
       <h3
         className="
           font-bold font-[Epilogue,Helvetica] text-black
-          text-[18px] sm:text-[22px] md:text-[27px] leading-[1.25]
+          text-[18px] sm:text-[21px] md:text-[25px] leading-[1.25]
         "
       >
         {skill.title}
@@ -111,6 +114,15 @@ const SkillCard = ({ skill, idx }) => (
       >
         {skill.description}
       </p>
+      <span
+        className="
+          mt-1 w-fit rounded-full bg-black/[0.06]
+          px-3 py-1 text-[12.5px] md:text-[13px]
+          font-semibold tracking-wide text-black/55
+        "
+      >
+        {skill.tech}
+      </span>
     </div>
   </article>
 );
@@ -141,6 +153,10 @@ const SkillsOverviewSection = () => {
       >
         Mes Compétences
       </SectionTitle>
+
+      <p className="-mt-2 mb-6 md:mb-8 max-w-[720px] text-center text-base md:text-[1.2rem] leading-[27px] text-black">
+        Les outils que j'utilise — et ce que ça change concrètement pour vous.
+      </p>
 
       <div
         id="liste-competences"
