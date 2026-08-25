@@ -41,10 +41,10 @@ const HeaderSection = ({ onContactClick }) => {
           React <span className="text-[#2d2d2d]">|</span> UX/UI
         </p>
         <h1
-          className="rise font-black italic font-[Epilogue,Helvetica] text-black text-[1.95rem] sm:text-[2.4rem] md:text-[2.5rem] xl:text-[3.2rem] leading-[1.12]"
+          className="rise font-black italic font-[Epilogue,Helvetica] text-black text-[2.1rem] sm:text-[2.6rem] md:text-[2.7rem] xl:text-[3.5rem] leading-[1.1]"
           style={{ animationDelay: "90ms" }}
         >
-          Votre site internet prêt à vous apporter des clients,{" "}
+          Votre site internet,{" "}
           {/* Surlignage au feutre : le fond ne monte qu'aux deux tiers de la
               ligne, et box-decoration-clone le répète sur chaque ligne. */}
           <span
@@ -54,7 +54,7 @@ const HeaderSection = ({ onContactClick }) => {
                 "linear-gradient(transparent 64%, var(--yellow) 64%)",
             }}
           >
-            en ligne sous 72&nbsp;h dès 400&nbsp;€
+            en&nbsp;ligne sous 72&nbsp;h dès 400&nbsp;€
           </span>
         </h1>
         <p

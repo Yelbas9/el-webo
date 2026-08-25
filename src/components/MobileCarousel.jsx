@@ -104,7 +104,7 @@ const MobileCarousel = ({
 
       {/* Pastilles : repère de position, et raccourci pour naviguer */}
       {items.length > 1 && (
-        <div className="mt-5 flex items-center justify-center gap-2 lg:hidden">
+        <div className="mt-3 flex items-center justify-center lg:hidden">
           {items.map((_, i) => (
             <button
               key={i}
@@ -112,14 +112,18 @@ const MobileCarousel = ({
               onClick={() => scrollToIndex(i, "smooth")}
               aria-label={`Aller à l'élément ${i + 1} sur ${items.length}`}
               aria-current={active === i}
-              className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                active === i
-                  ? "w-7 bg-[var(--yellow)]"
-                  : dark
-                  ? "w-2.5 bg-white/30 hover:bg-white/50"
-                  : "w-2.5 bg-black/20 hover:bg-black/35"
-              }`}
-            />
+              className="flex items-center justify-center px-1.5 py-2.5 cursor-pointer"
+            >
+              <span
+                className={`block h-2.5 rounded-full transition-all duration-300 ${
+                  active === i
+                    ? "w-7 bg-[var(--yellow)]"
+                    : dark
+                    ? "w-2.5 bg-white/30 hover:bg-white/50"
+                    : "w-2.5 bg-black/20 hover:bg-black/35"
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}

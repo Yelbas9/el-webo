@@ -14,7 +14,7 @@ const ProjectFrame = ({ project, height = "h-[240px] sm:h-[300px] lg:h-[330px]" 
         <span className="w-3 h-3 rounded-full bg-[#ff6250]" />
         <span className="w-3 h-3 rounded-full bg-[#ffd300]" />
         <span className="w-3 h-3 rounded-full bg-[#009379]" />
-        <span className="ml-3 truncate rounded-full bg-[#1c1c1c] px-4 py-1 text-[13px] text-white/60">
+        <span className="ml-3 truncate rounded-full bg-[#1c1c1c] px-3 py-1 text-[12px] sm:px-4 sm:text-[13px] text-white/60">
           {domain}
         </span>
       </div>

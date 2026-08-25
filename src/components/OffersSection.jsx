@@ -143,7 +143,7 @@ const OfferCard = ({ offer, onContactClick }) => {
         {service && (
           <Link
             to={`/${service.slug}`}
-            className="group/link inline-flex items-center gap-1.5 font-bold text-[#1c1c1c] text-[14.5px] md:text-[15px]"
+            className="group/link inline-flex items-center gap-1.5 py-1.5 font-bold text-[#1c1c1c] text-[14.5px] md:text-[15px]"
           >
             <span className="underline decoration-[var(--yellow)] decoration-3 underline-offset-4 transition-colors group-hover/link:decoration-[#1c1c1c]">
               Ce que comprend cette formule
