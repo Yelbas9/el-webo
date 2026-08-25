@@ -114,10 +114,10 @@ const HeaderSection = ({ onContactClick }) => {
           <button
             type="button"
             onClick={onContactClick}
-            className="lift mb-7 flex-shrink-0 inline-flex items-center justify-center bg-[#FFD300] rounded-[20px] px-5 py-3.5 font-bold text-[#1c1c1c] text-[16px] sm:text-[17px] leading-none shadow-sm hover:bg-[#e6be00] cursor-pointer"
+            className="lift mb-7 flex-shrink-0 inline-flex items-center justify-center whitespace-nowrap bg-[#FFD300] rounded-[20px] px-4 sm:px-5 py-3.5 font-bold text-[#1c1c1c] text-[16px] sm:text-[17px] leading-none shadow-sm hover:bg-[#e6be00] cursor-pointer"
             style={{ minHeight: "52px" }}
           >
-            Mon devis gratuit
+            Devis gratuit
           </button>
           <img
             src="/hero.webp"
@@ -126,9 +126,14 @@ const HeaderSection = ({ onContactClick }) => {
             height="542"
             fetchPriority="high"
             decoding="async"
-            className="w-[38%] max-w-[190px] h-auto object-contain -mb-5"
+            className="h-auto object-contain -mb-5 -mr-5 sm:-mr-8"
             draggable={false}
-            style={{ userSelect: "none" }}
+            /* La largeur se cale sur la place que laisse le bouton : à
+               320 px le calc() prend le dessus, au-delà c'est le 50vw. */
+            style={{
+              userSelect: "none",
+              width: "min(50vw, calc(100% - 132px), 245px)",
+            }}
           />
         </div>
       </div>

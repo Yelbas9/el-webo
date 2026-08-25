@@ -22,20 +22,21 @@ const Stars = () => (
   </div>
 );
 
+// L'ordre compte : le premier avis est celui qu'on voit sans rien faire.
 const testimonialsData = [
-  {
-    id: 1,
-    text: "Un grand merci pour ce site internet. Tout est clair, pro, moderne. C'est un réel gain de temps, mes clients trouvent facilement mes réalisations et peuvent me contacter sans prise de tête. Service rapide et efficace, je recommande les yeux fermés !",
-    name: "Talha Aslan",
-    company: "TH Menuiseries",
-    accent: "#1c1c1c",
-  },
   {
     id: 2,
     text: "Je voulais une app vraiment unique pour ma boutique, Ibrahim a tout compris ! Design dynamique, interface intuitive etc.. Mes visiteurs sont bluffés, et moi aussi. Super suivi tout au long du projet, merci !",
     name: "Rehaima Sourour",
     company: "Mydupes",
     accent: "#009379",
+  },
+  {
+    id: 1,
+    text: "Un grand merci pour ce site internet. Tout est clair, pro, moderne. C'est un réel gain de temps, mes clients trouvent facilement mes réalisations et peuvent me contacter sans prise de tête. Service rapide et efficace, je recommande les yeux fermés !",
+    name: "Talha Aslan",
+    company: "TH Menuiseries",
+    accent: "#1c1c1c",
   },
   {
     id: 3,
@@ -70,7 +71,6 @@ const TestimonialsSection = () => {
       </SectionTitle>
 
       <MobileCarousel
-        startCentered
         ariaLabel="Avis de mes clients"
         desktopClass="lg:grid lg:grid-cols-3 lg:gap-8"
       >

@@ -54,7 +54,7 @@ const ServicePage = ({ slug, onContactClick }) => {
 
       {/* En-tête : texte à gauche, picto à droite (même rythme que l'accueil) */}
       <section className="w-full bg-white">
-        <div className="max-w-[1280px] mx-auto gutter py-10 md:py-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div className="max-w-[1280px] mx-auto gutter py-10 md:py-16 flex flex-col md:flex-row items-center gap-0 md:gap-12">
           <div className="flex-1 min-w-0">
             <nav aria-label="Fil d'ariane" className="mb-5 text-[14px]">
               <Link
@@ -67,9 +67,24 @@ const ServicePage = ({ slug, onContactClick }) => {
               <span className="text-black">{service.navLabel}</span>
             </nav>
 
-            <h1 className="rise font-black italic font-[Epilogue,Helvetica] text-black text-[2.1rem] sm:text-[2.6rem] md:text-[3.1rem] leading-[1.1]">
-              {service.title}
-            </h1>
+            {/* Mobile : le picto accompagne le titre. Seul, sous le bouton,
+                il occupait une bande entière pour rien. */}
+            <div className="flex items-start justify-between gap-4">
+              <h1 className="rise font-black italic font-[Epilogue,Helvetica] text-black text-[2.1rem] sm:text-[2.6rem] md:text-[3.1rem] leading-[1.1]">
+                {service.title}
+              </h1>
+              <img
+                src={service.heroImage}
+                alt=""
+                aria-hidden="true"
+                width="222"
+                height="221"
+                fetchPriority="high"
+                decoding="async"
+                className="rise md:hidden w-[72px] sm:w-[92px] h-auto flex-shrink-0 object-contain"
+                draggable={false}
+              />
+            </div>
             <p
               className="rise mt-5 max-w-[620px] text-[1.12rem] md:text-[1.3rem] leading-[1.55] text-black/80"
               style={{ animationDelay: "90ms" }}
@@ -94,7 +109,7 @@ const ServicePage = ({ slug, onContactClick }) => {
             height="221"
             fetchPriority="high"
             decoding="async"
-            className="w-[150px] sm:w-[190px] md:w-[240px] lg:w-[290px] h-auto object-contain flex-shrink-0"
+            className="hidden md:block md:w-[240px] lg:w-[290px] h-auto object-contain flex-shrink-0"
             draggable={false}
           />
         </div>

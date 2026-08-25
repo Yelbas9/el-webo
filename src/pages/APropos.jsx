@@ -215,20 +215,19 @@ const APropos = ({ onContactClick }) => {
         {/* CTA */}
         <section className="bg-[#1c1c1c] on-dark rounded-[14px] p-7 md:p-10 text-center">
           <h2 className="font-black italic font-[Epilogue,Helvetica] text-white text-[1.6rem] md:text-[2rem] leading-tight">
-            Des sites en ligne, des clients qui recommandent — et le
-            vôtre&#8239;?
+            Vous voulez votre propre site&#8239;?
           </h2>
           <p className="mt-3 mx-auto max-w-[560px] text-[16px] leading-[26px] text-white/85">
             Un premier échange gratuit, sans engagement, pour voir si on est
             faits pour travailler ensemble.
           </p>
 
-          <div className="mt-7 flex flex-wrap justify-center gap-3">
+          <div className="mt-7 mx-auto grid max-w-[760px] grid-cols-1 gap-3 sm:grid-cols-3">
             {services.map((s) => (
               <Link
                 key={s.slug}
                 to={`/${s.slug}`}
-                className="lift group/other inline-flex items-center gap-2.5 bg-white rounded-[14px] px-4 py-3 font-bold text-[#1c1c1c] text-[15px] hover:bg-[var(--yellow)]"
+                className="lift group/other flex h-full items-center gap-3 bg-white rounded-[14px] px-5 py-3 font-bold text-[#1c1c1c] text-[15px] hover:bg-[var(--yellow)]"
               >
                 <img
                   src={s.heroImage}
