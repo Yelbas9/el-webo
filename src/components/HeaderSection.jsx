@@ -37,8 +37,8 @@ const HeaderSection = ({ onContactClick }) => {
           Me contacter
         </button>
 
-        {/* MOBILE : bouton + illustration côte à côte, l'image posée sur la
-            bordure basse de la section blanche. */}
+        {/* MOBILE : bouton + illustration côte à côte. Seule l'image se
+            pose sur la bordure basse ; le bouton garde sa marge (mb-7). */}
         <div
           className="rise flex md:hidden flex-row items-end justify-between gap-3 w-full -mt-8"
           style={{ animationDelay: "190ms" }}
@@ -46,7 +46,7 @@ const HeaderSection = ({ onContactClick }) => {
           <button
             type="button"
             onClick={onContactClick}
-            className="lift flex-shrink-0 inline-flex items-center justify-center bg-[#FFD300] rounded-[20px] px-6 py-3.5 font-bold text-[#1c1c1c] text-[17px] sm:text-[18px] leading-none shadow-sm hover:bg-[#e6be00] cursor-pointer"
+            className="lift mb-7 flex-shrink-0 inline-flex items-center justify-center bg-[#FFD300] rounded-[20px] px-6 py-3.5 font-bold text-[#1c1c1c] text-[17px] sm:text-[18px] leading-none shadow-sm hover:bg-[#e6be00] cursor-pointer"
             style={{ minHeight: "52px" }}
           >
             Me contacter

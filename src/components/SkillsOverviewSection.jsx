@@ -115,11 +115,18 @@ const SkillCard = ({ skill, idx }) => (
   </article>
 );
 
+const allSkills = [...skillsDataBase, ...moreSkills];
+
+// Repliée, la liste montre 3 cartes sur mobile et 4 sur bureau (la grille
+// passe à deux colonnes en md, une 4e carte y complète la seconde ligne).
+const hiddenClass = (idx) => {
+  if (idx < 3) return "";
+  if (idx === 3) return "hidden md:block";
+  return "hidden";
+};
+
 const SkillsOverviewSection = () => {
   const [showMore, setShowMore] = useState(false);
-  const visibleSkills = showMore
-    ? [...skillsDataBase, ...moreSkills]
-    : skillsDataBase;
 
   return (
     <section
@@ -143,11 +150,11 @@ const SkillsOverviewSection = () => {
           w-full mb-4 md:mb-8 max-w-[1280px]
         "
       >
-        {visibleSkills.map((skill, idx) => (
+        {allSkills.map((skill, idx) => (
           <Reveal
             key={skill.id}
-            delay={idx < skillsDataBase.length ? (idx % 2) * 90 : 0}
-            className="h-full"
+            delay={idx < 4 ? (idx % 2) * 90 : 0}
+            className={`h-full ${showMore ? "" : hiddenClass(idx)}`}
           >
             <SkillCard skill={skill} idx={idx} />
           </Reveal>
