@@ -1,7 +1,7 @@
 // Arguments affichés dès le premier écran. Ce sont des engagements
 // commerciaux : ils doivent rester alignés avec offers.js et la FAQ.
 const argumentsCles = [
-  "Impeccable sur mobile comme sur ordinateur",
+  "Impeccable sur tous les écrans",
   "Hébergement et domaine offerts la 1re année",
   "Sans abonnement obligatoire",
 ];

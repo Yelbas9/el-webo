@@ -106,7 +106,7 @@ const Admin = () => {
               Tableau de bord
             </h1>
             <p className="mt-1 text-[15px] text-black/60">
-              Mesure d'audience sans cookie, hébergée sur ton propre site.
+              Mesure d'audience sans cookie, hébergée sur votre propre site.
             </p>
           </div>
           {key && (

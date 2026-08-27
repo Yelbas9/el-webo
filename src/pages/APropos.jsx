@@ -222,12 +222,12 @@ const APropos = ({ onContactClick }) => {
             faits pour travailler ensemble.
           </p>
 
-          <div className="mt-7 mx-auto grid max-w-[760px] grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="mt-7 mx-auto grid max-w-[760px] grid-cols-1 justify-items-center gap-3 sm:grid-cols-3">
             {services.map((s) => (
               <Link
                 key={s.slug}
                 to={`/${s.slug}`}
-                className="lift group/other flex h-full items-center gap-3 bg-white rounded-[14px] px-5 py-3 font-bold text-[#1c1c1c] text-[15px] hover:bg-[var(--yellow)]"
+                className="lift group/other flex h-full w-full max-w-[225px] sm:max-w-none items-center gap-3 bg-white rounded-[14px] px-5 py-3 font-bold text-[#1c1c1c] text-[15px] hover:bg-[var(--yellow)]"
               >
                 <img
                   src={s.heroImage}

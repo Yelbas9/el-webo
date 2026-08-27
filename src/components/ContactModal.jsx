@@ -239,7 +239,7 @@ const ContactModal = ({ open, onClose, prefill = "" }) => {
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Choisis une option…</option>
+                  <option value="">Choisissez une option…</option>
                   {projectTypes.map((t) => (
                     <option key={t} value={t}>
                       {t}
@@ -283,7 +283,7 @@ const ContactModal = ({ open, onClose, prefill = "" }) => {
                 </Field>
               </div>
 
-              <Field label="Ton projet en quelques mots" htmlFor="message">
+              <Field label="Votre projet en quelques mots" htmlFor="message">
                 <textarea
                   className={inputClass}
                   name="message"
@@ -316,7 +316,7 @@ const ContactModal = ({ open, onClose, prefill = "" }) => {
                 {status === "sending" ? "Envoi…" : "Envoyer ma demande"}
               </button>
               <p className="text-[13px] text-black/55 text-center">
-                Tes informations servent uniquement à te répondre. Aucune
+                Vos informations servent uniquement à vous répondre. Aucune
                 revente, aucune newsletter.
               </p>
             </form>
