@@ -3,6 +3,7 @@ import { getService } from "../data/services";
 import { offers } from "../data/offers";
 import { projects } from "../data/projects";
 import Seo from "../components/Seo";
+import { SITE_URL } from "../config";
 import Reveal from "../components/Reveal";
 import ProjectFrame from "../components/ProjectFrame";
 import ServiceIcon from "../components/ServiceIcon";
@@ -39,7 +40,7 @@ const ServicePage = ({ slug, onContactClick }) => {
     name: service.title,
     description: service.metaDescription,
     serviceType: service.projectType,
-    provider: { "@id": "https://el-webo.netlify.app/#business" },
+    provider: { "@id": `${SITE_URL}/#business` },
     areaServed: { "@type": "Country", name: "France" },
   };
 

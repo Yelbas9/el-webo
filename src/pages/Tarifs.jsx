@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { offers } from "../data/offers";
 import { faqItems } from "../data/faq";
 import Seo from "../components/Seo";
+import { SITE_URL } from "../config";
 import Reveal from "../components/Reveal";
 import OffersSection from "../components/OffersSection";
 import FaqAccordion from "../components/FaqAccordion";
@@ -57,7 +58,7 @@ const Tarifs = ({ onContactClick }) => {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
     name: "Tarifs El Webo",
-    url: "https://el-webo.netlify.app/tarifs",
+    url: `${SITE_URL}/tarifs`,
     itemListElement: offers.map((o) => ({
       "@type": "Offer",
       name: o.name,

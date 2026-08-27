@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Seo from "../components/Seo";
+import { SITE_URL } from "../config";
 import { services } from "../data/services";
 import Reveal from "../components/Reveal";
 import ServiceIcon from "../components/ServiceIcon";
@@ -61,8 +62,8 @@ const APropos = ({ onContactClick }) => {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     name: "À propos d'El Webo",
-    url: "https://el-webo.netlify.app/a-propos",
-    mainEntity: { "@id": "https://el-webo.netlify.app/#business" },
+    url: `${SITE_URL}/a-propos`,
+    mainEntity: { "@id": `${SITE_URL}/#business` },
   };
 
   return (

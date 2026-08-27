@@ -159,7 +159,7 @@ Par ordre d'impact :
       ce que tu as réellement utilisé.
 - [ ] **FAQ** — `src/data/faq.js` : relire les délais et conditions annoncés.
 - [ ] **Bandeau de réassurance** — `src/pages/Home.jsx` (`trustPoints`).
-- [ ] **Domaine définitif** — remplacer `el-webo.netlify.app` dans
+- [ ] **Domaine définitif** — remplacer `elwebo.fr` dans
       `src/config.js`, `index.html`, `public/robots.txt` et
       `public/sitemap.xml`.
 

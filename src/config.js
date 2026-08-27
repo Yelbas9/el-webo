@@ -1,5 +1,5 @@
 // Adresse publique du site. Sert aux URL canoniques et aux données structurées.
-export const SITE_URL = "https://el-webo.netlify.app";
+export const SITE_URL = "https://elwebo.fr";
 
 /**
  * Mesure d'audience « maison ».
