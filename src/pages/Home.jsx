@@ -19,8 +19,8 @@ const Home = ({ onContactClick }) => {
   return (
     <div className="w-full min-h-screen bg-[#F7F5F2] flex flex-col">
       <Seo
-        title="El Webo – Création de site internet sur mesure dès 400 €, en ligne sous 72 h"
-        description="Création de sites web et d'applications sur mesure en React. Site vitrine dès 400 € livré sous 72 h, boutique en ligne dès 800 €. Hébergement et nom de domaine offerts la première année, sans abonnement obligatoire."
+        title="Création de site internet sur mesure dès 400 € | El Webo"
+        description="Création de site internet sur mesure en React : site vitrine dès 400 € en ligne sous 72 h, boutique dès 800 €. Devis gratuit, sans abonnement."
         path="/"
       />
 

@@ -71,8 +71,9 @@ const Tarifs = ({ onContactClick }) => {
     <div className="w-full bg-[#F7F5F2]">
       <Seo
         title="Tarifs – création de site web sur mesure | El Webo"
-        description="Site vitrine à partir de 400 € en ligne sous 72 h, boutique en ligne dès 800 €, application sur devis. Hébergement et nom de domaine offerts la première année, sans abonnement obligatoire."
+        description="Combien coûte un site internet ? Site vitrine dès 400 € en ligne sous 72 h, boutique dès 800 €, application sur devis. Devis gratuit et détaillé."
         path="/tarifs"
+        breadcrumb="Tarifs"
         jsonLd={jsonLd}
       />
 

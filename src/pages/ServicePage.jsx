@@ -50,6 +50,7 @@ const ServicePage = ({ slug, onContactClick }) => {
         title={service.metaTitle}
         description={service.metaDescription}
         path={`/${service.slug}`}
+        breadcrumb={service.navLabel}
         jsonLd={jsonLd}
       />
 

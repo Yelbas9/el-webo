@@ -187,6 +187,9 @@ const OffersSection = ({ onContactClick, compact = false }) => {
   if (compact) {
     return (
       <section id="tarifs" className="w-full pt-10 pb-4 md:pt-16 md:pb-8">
+        {/* Le titre de la page joue déjà ce rôle visuellement, mais sans ce
+            h2 la hiérarchie sautait de h1 à h3. */}
+        <h2 className="sr-only">Mes formules et leurs tarifs</h2>
         {cards}
       </section>
     );

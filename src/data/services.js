@@ -11,7 +11,7 @@ export const services = [
     title: "Création de site vitrine sur mesure",
     metaTitle: "Création de site vitrine sur mesure | El Webo",
     metaDescription:
-      "Création de site vitrine professionnel en React : design unique, site rapide, optimisé pour Google et pensé pour transformer vos visiteurs en clients. Devis gratuit.",
+      "Création de site vitrine sur mesure en React : design unique, site rapide, optimisé pour Google et pensé pour transformer vos visiteurs en clients.",
     hook: "Votre site est souvent le premier contact d'un client avec vous. Autant qu'il donne envie.",
     intro:
       "Un site vitrine sert à une chose : convaincre quelqu'un qui vous découvre de vous contacter. Cela demande un message clair, une navigation évidente et des pages qui s'affichent instantanément — pas un catalogue de fonctionnalités inutiles. Je conçois chaque site sur mesure, sans modèle prédéfini, pour que le vôtre ressemble à votre activité et à personne d'autre.",

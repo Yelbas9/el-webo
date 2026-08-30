@@ -70,8 +70,9 @@ const APropos = ({ onContactClick }) => {
     <div className="w-full bg-[#F7F5F2]">
       <Seo
         title="À propos – El Webo, développeur web indépendant"
-        description="Ibrahim Yelbas, développeur web indépendant en Gironde. Ancien technicien en bureau d'études reconverti au développement, je crée des sites et applications sur mesure en React."
+        description="Ibrahim Yelbas, développeur web indépendant en Gironde. Je crée des sites internet et des applications sur mesure en React, jamais à partir d'un template."
         path="/a-propos"
+        breadcrumb="À propos"
         jsonLd={jsonLd}
       />
 

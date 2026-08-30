@@ -8,8 +8,27 @@ const SITE = SITE_URL;
  * React 19 remonte automatiquement <title>, <meta> et <link> dans le <head>,
  * aucune dépendance externe n'est nécessaire.
  */
-const Seo = ({ title, description, path = "/", jsonLd, noindex = false }) => {
+const Seo = ({
+  title,
+  description,
+  path = "/",
+  jsonLd,
+  breadcrumb,
+  noindex = false,
+}) => {
   const url = `${SITE}${path}`;
+
+  // Fil d'ariane structuré : Google l'affiche sous le titre dans ses
+  // résultats à la place de l'URL brute.
+  const breadcrumbLd = breadcrumb && {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Accueil", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: breadcrumb, item: url },
+    ],
+  };
+  const donneesStructurees = [jsonLd, breadcrumbLd].filter(Boolean);
 
   // index.html contient des balises SEO de repli pour les robots qui
   // n'exécutent pas JavaScript. Dès que React prend la main, on les retire :
@@ -43,10 +62,16 @@ const Seo = ({ title, description, path = "/", jsonLd, noindex = false }) => {
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={`${SITE}/og.jpg`} />
 
-      {jsonLd && (
+      {donneesStructurees.length > 0 && (
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              donneesStructurees.length === 1
+                ? donneesStructurees[0]
+                : donneesStructurees
+            ),
+          }}
         />
       )}
     </>
