@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Tableau de bord privé : le noindex est injecté par React, un robot qui
+# n'exécute pas JavaScript ne le verrait pas.
+Disallow: /admin
+
 Sitemap: https://elwebo.fr/sitemap.xml
