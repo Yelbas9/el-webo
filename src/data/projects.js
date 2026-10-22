@@ -21,7 +21,6 @@ export const projects = [
     image: "/projets/heurly.webp",
     mobileImage: "/projets/heurly-mobile.webp",
     category: "Plateforme de réservation",
-    year: "2025",
     tagline: "Trouver un pro et réserver en ligne, à toute heure",
     description:
       "Annuaire géolocalisé, disponibilités en temps réel, réservation sans création de compte et espace pro avec facturation automatique.",
@@ -41,7 +40,6 @@ export const projects = [
     image: "/projets/miraya.webp",
     mobileImage: "/projets/miraya-mobile.webp",
     category: "Boutique en ligne",
-    year: "2025",
     tagline: "Mode féminine élégante et intemporelle",
     description:
       "Un e-commerce sur mesure à l'univers « old money » : collections mises en avant, fiches produits soignées et parcours d'achat fluide.",
@@ -61,7 +59,6 @@ export const projects = [
     image: "/projets/th-menuiseries.webp",
     mobileImage: "/projets/th-menuiseries-mobile.webp",
     category: "Site vitrine",
-    year: "2024",
     tagline: "Fabricant de menuiseries PVC & ALU sur mesure",
     description:
       "La vitrine d'un fabricant près de Bordeaux : gammes, réalisations en photos et référencement local pour générer des demandes de devis.",
@@ -81,7 +78,6 @@ export const projects = [
     image: "/projets/barosgames.webp",
     mobileImage: "/projets/barosgames-mobile.webp",
     category: "Boutique en ligne",
-    year: "2025",
     tagline: "Cartes TCG, boosters & produits scellés",
     description:
       "Une boutique de cartes à collectionner pensée pour un gros catalogue : filtres par univers, type et prix, avec tri instantané.",

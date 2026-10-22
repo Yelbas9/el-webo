@@ -43,7 +43,6 @@ const ProjectCard = ({ project }) => {
           <span className="bg-[var(--yellow)] px-2.5 py-1 text-[11.5px] md:text-[13px] font-bold uppercase tracking-wide text-[#1c1c1c]">
             {project.category}
           </span>
-          <span className="text-[13px] text-white/50">{project.year}</span>
         </div>
 
         <div>
