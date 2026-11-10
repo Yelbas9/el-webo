@@ -36,7 +36,7 @@ export const projects = [
   {
     id: "miraya",
     name: "Miraya Édition",
-    url: "https://miraya-edition.com",
+    url: "https://miraya-edition.fr",
     image: "/projets/miraya.webp",
     mobileImage: "/projets/miraya-mobile.webp",
     category: "Boutique en ligne",
